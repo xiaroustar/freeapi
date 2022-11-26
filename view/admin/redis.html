@@ -1,0 +1,117 @@
+<?php
+  require __DIR__.'/head.html';
+  require __DIR__.'/header.html';
+  $File_Ming = 'redis';
+  require __DIR__.'/nav.html';
+  ?>
+<main class="app-content">
+    <div class="app-title">
+        <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item"><a href="">Redis配置</a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <form id="admin-redis">
+                <div class="tile">
+                    <div class="tile-body">
+                        <div class="form-group">
+                            <label class="control-label">Redis端口</label>
+                            <input class="form-control" type="text" name="redis_port"
+                                value="<?php echo $web['redis_port'];?>" placeholder="6379">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Redis密码</label>
+                            <input class="form-control" type="text" name="redis_pass"
+                                value="<?php echo $web['redis_pass'];?>" placeholder="123456">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">限制周期访问次数</label>
+                            <input class="form-control" type="text" name="redis_next"
+                                value="<?php echo $web['redis_next'];?>" placeholder="1">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Redis周期</label>
+                            <input class="form-control" type="text" name="redis_period"
+                                value="<?php echo $web['redis_period'];?>" placeholder="2">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">IP白名单数</label>
+                            <input class="form-control" type="text" name="redis_ips"
+                                value="<?php echo $web['redis_ips'];?>" placeholder="1">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">频繁提示</label>
+                            <textarea class="form-control" id="redis_msg" name="redis_msg" rows="2"
+                                placeholder="请输入人备案号"><?php echo $web['redis_msg'];?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="details">Redis开关</label>
+                            <div class="toggle-flip">
+                                <label>
+                                    <input type="checkbox"
+                                        <?php if(isset($web['redis_on']) && !empty($web['redis_on'])){echo 'checked="checked"';}?>
+                                        value="1" name="redis_on">
+                                    <span class="flip-indecator" data-toggle-on="ON" data-toggle-off="OFF"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">提示：
+                                <span style="color:#e60c0c">请确保已经开启Redis服务，频繁提示请使用JSON进行编码</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="tile-footer">
+                        <button class="btn btn-primary" type="button"><i
+                                class="fa fa-fw fa-lg fa-check-circle"></i>保存</button>
+                        <span style="color:#e60c0c"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <?php  require __DIR__.'/fooer.html'; ?>
+
+    <script>
+        layui.use('carousel', function () {
+            var carousel = layui.carousel;
+            //建造实例
+            carousel.render({
+                elem: '#test-carousel-normal',
+                width: '100%' //设置容器宽度
+                ,
+                height: '238px' //设置容器宽度
+                ,
+                arrow: 'always' //始终显示箭头
+                //,anim: 'updown' //切换动画方式
+            });
+        });
+
+        $('#admin-redis button').click(function () {
+            fd = new FormData(document.getElementById('admin-redis'));
+            $.ajax({
+                url: '/admin/redis',
+                type: "POST",
+                timeout: "5000",
+                dataType: "json",
+                contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.code == "200") {
+                        layer.msg(data.msg);
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function (XMLResponse) {
+                    layer.msg(XMLResponse.error);
+                }
+            });
+        });
+    </script>

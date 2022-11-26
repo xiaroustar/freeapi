@@ -1,0 +1,122 @@
+<?php
+  require __DIR__.'/head.html';
+  $File_Ming = 'order';
+  ?>
+<style>
+    .app-content {
+        margin-left: 0px;
+        margin-top: 0px !important;
+    }
+
+    .layui-tab-content {
+        padding: 0;
+    }
+
+    .layui-tab-card {
+        box-shadow: 0 0px 5px 0 rgba(0, 0, 0, .0);
+        border: 0;
+    }
+
+    .layui-tab-title {
+        margin-bottom: 5px;
+        border-radius: 3px;
+    }
+
+    .app-content {
+        padding: 0px 12px;
+        background-color: #fff;
+    }
+
+    .tile {
+        margin-bottom: 0px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0), 0 1px 5px 0 rgba(0, 0, 0, 0.00), 0 3px 1px -2px rgba(0, 0, 0, 0.0);
+    }
+
+    .layui-form-pane .layui-form-item[pane] {
+        text-align: center;
+    }
+
+    .zongji {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .zongji b {
+        font-size: 18px;
+        color: red;
+        margin-right: 5px;
+    }
+
+    .zongji span {
+        color: coral;
+    }
+</style>
+<!-- 主体 -->
+<main class="app-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <form class="layui-form layui-form-pane" id="user-order">
+                    <h1 style="margin: 0px 0px 8px 0px;font-size:1rem"><?php echo $data['l_title'];?></h1>
+                    <p>
+                        <?php echo $data['l_desc'];?>
+                    </p>
+                    <input type="hidden" value="<?php echo $data['l_id'];?>" name="id">
+                    <div class="layui-form-item" pane onclick="timeOption()">
+                        <input type="radio" name="type" value="1" title="月付" money="<?php echo $data['p_month'];?>"
+                            checked>
+                        <input type="radio" name="type" value="2" title=季付 money="<?php echo $data['p_season'];?>">
+                        <input type="radio" name="type" value="3" title="年付" money="<?php echo $data['p_year'];?>">
+                    </div>
+                    <div class="zongji">总计：<b id="money"><?php echo $data['p_month'];?></b><span>元</span></div>
+                    <div style="text-align: center;margin: auto;">
+                        <button type="button" class="btn btn-primary btn-block">立即购买</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Essential javascripts for application to work-->
+    <script src="/assets/other/js/jquery.min.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="/assets/awesome/js/plugins/pace.min.js"></script>
+    <script src="/assets/layui/layui.all.js"></script>
+    <script type="text/javascript">
+        //更新价格
+        function timeOption() {
+            var money = $("input[type='radio']:checked").attr("money");
+            $("#money").text(money);
+        }
+
+        //下单
+        $('#user-order button').click(function () {
+            fd = new FormData(document.getElementById('user-order'));
+            $.ajax({
+                url: '/user/order',
+                type: "POST",
+                timeout: "5000",
+                dataType: "json",
+                contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.code == "200") {
+                        layer.msg(data.msg, { time: 1000 }, function () {
+                            window.parent.location.href = "/user/owned.html";
+                        });
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function (XMLResponse) {
+                    layer.msg(XMLResponse.error);
+                }
+            });
+        });
+    </script>
+    </body>
+
+    </html>

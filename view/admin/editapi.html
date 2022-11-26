@@ -1,0 +1,706 @@
+<?php
+  require __DIR__.'/head.html';
+  $File_Ming = 'addapi';
+  ?>
+<style>
+    .app-content {
+        margin-left: 0px;
+        margin-top: 0px !important;
+    }
+
+    .layui-tab-content {
+        padding: 0;
+    }
+
+    .layui-tab-card {
+        box-shadow: 0 0px 5px 0 rgba(0, 0, 0, .0);
+        border: 0;
+    }
+
+    .layui-tab-title {
+        margin-bottom: 5px;
+        border-radius: 3px;
+    }
+
+    .app-content {
+        padding: 0px 12px;
+        background-color: #fff;
+    }
+</style>
+<!-- 主体 -->
+<main class="app-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="layui-tab layui-tab-card">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">接口信息</li>
+                    <li>参数信息</li>
+                    <?php if($data['info']['l_data']==1):?>
+                    <li>数据绑定</li>
+                    <?php endif;?>
+                    <li>接口收费</li>
+                </ul>
+                <div class="layui-tab-content" style="height: 100px;">
+                    <div class="layui-tab-item layui-show">
+                        <form id="admin-editapi">
+                            <div class="tile">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <input type="hidden" id="optApi" value="<?php echo $data['info']['l_id'];?>">
+                                        <div class="form-group">
+                                            <label for="title">接口标题</label>
+                                            <input class="form-control" id="title" type="text" aria-describedby="title"
+                                                name="title" value="<?php echo $data['info']['l_title'];?>"
+                                                placeholder="短网址生成">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="alias">别名（用于区分访问）</label>
+                                            <input class="form-control" id="alias" type="text" aria-describedby="alias"
+                                                name="alias" value="<?php echo $data['info']['l_alias'];?>"
+                                                placeholder="dwz">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="desc">简介说明</label>
+                                            <input class="form-control" id="desc" type="text" aria-describedby="desc"
+                                                name="desc" value="<?php echo $data['info']['l_desc'];?>"
+                                                placeholder="将长网址进行缩短，支持百度、新浪、腾讯短网址等等。">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="address">接口地址</label>
+                                            <input class="form-control" id="address" type="text"
+                                                aria-describedby="address" name="address"
+                                                value="<?php echo $data['info']['l_address'];?>"
+                                                placeholder="https://api.lykep.cn/api/dwz?url=">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="format">返回格式</label>
+                                            <input class="form-control" id="format" type="text"
+                                                aria-describedby="format" name="format"
+                                                value="<?php echo $data['info']['l_format'];?>" placeholder="JSON">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="mode">请求方式</label>
+                                            <input class="form-control" id="mode" type="text" aria-describedby="mode"
+                                                name="mode" value="<?php echo $data['info']['l_mode'];?>"
+                                                placeholder="GET">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ask">请求示例</label>
+                                            <input class="form-control" id="ask" type="text" aria-describedby="ask"
+                                                name="ask" value="<?php echo $data['info']['l_ask'];?>"
+                                                placeholder="https://api.lykep.cn/api/dwz?url=blog.lykep.cn">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="example">返回示例</label>
+                                            <textarea class="form-control" id="example" name="example" rows="5"
+                                                placeholder='{
+                            "code": 1, 
+                            "msg": "生成成功", 
+                            "url": "http://blog.oioweb.cn", 
+                            "data": {
+                                "tcn": "http://t.cn/RuewNC3", 
+                                "url": "https://url.cn/59WAm1B"
+                            }
+                        }'><?php echo $data['info']['l_example'];?></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="demo">代码示例</label>
+                                            <textarea class="form-control" id="demo" name="demo" rows="4"
+                                                placeholder='暂无示例,站长交流群：708298599 进行交流'><?php echo $data['info']['l_demo'];?></textarea>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label for="details">数据接口（判断是否调用自定义数据库数据）</label>
+                                            <div class="toggle-flip">
+                                                <label>
+                                                    <input type="checkbox" value="1"
+                                                        <?php if ($data['info']['l_data']==1){echo 'checked="checked""';}?>
+                                                        name="datatype"><span class="flip-indecator" data-toggle-on="ON"
+                                                        data-toggle-off="OFF"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="details">接口收费</label>
+                                            <div class="toggle-flip">
+                                                <label>
+                                                    <input type="checkbox" value="1"
+                                                        <?php if ($data['info']['l_pay']==1){echo 'checked="checked""';}?>
+                                                        name="pay"><span class="flip-indecator" data-toggle-on="ON"
+                                                        data-toggle-off="OFF"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="details">接口上架</label>
+                                            <div class="toggle-flip">
+                                                <label>
+                                                    <input type="checkbox" value="1"
+                                                        <?php if ($data['info']['l_show']==1){echo 'checked="checked""';}?>
+                                                        name="show"><span class="flip-indecator" data-toggle-on="ON"
+                                                        data-toggle-off="OFF"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tile-footer">
+                                    <input type="hidden" value="addapi" name="target" style="display: none">
+                                    <button type="button" class="btn btn-primary">保存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="layui-tab-item">
+                        <form id="admin-apiinfo">
+                            <div class="tile">
+                                <div class="apihttp" id="apival">
+                                    <?php if(!empty($data['val'])):
+                                	foreach ($data['val'] as $k => $v) : 
+                                	if($v['p_api_type']==0):?>
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <label for="name0">参数名</label>
+                                                <input class="form-control" id="name0" type="text"
+                                                    aria-describedby="name0" name="data[0][name]"
+                                                    value="<?php echo $v['p_name'];?>" placeholder="url">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <label for="crux0">必填</label>
+                                                <input class="form-control" id="crux0" type="text"
+                                                    aria-describedby="crux0" name="data[0][crux]"
+                                                    value="<?php echo $v['p_crux'];?>" placeholder="是">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="form-group">
+                                                <label for="type0">参数类型</label>
+                                                <input class="form-control" id="type0" type="text"
+                                                    aria-describedby="type0" name="data[0][type]"
+                                                    value="<?php echo $v['p_type'];?>" placeholder="string">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label for="desc0">参数说明</label>
+                                                <input class="form-control" id="desc0" type="text"
+                                                    aria-describedby="desc0" name="data[0][desc]"
+                                                    value="<?php echo $v['p_desc'];?>" placeholder="需要进行操作网址">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <div class="form-group">
+                                                <label for="desc0">&nbsp操作</label>
+                                                <input type="button" value="删除" title="<?php echo $v['p_id'];?>"
+                                                    onclick="DelVal(this)"
+                                                    class="form-control btn btn-danger btn-sm"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php endif;
+                                    endforeach;
+                                    endif; ?>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="optApi">绑定接口</label>
+                                    <select class="form-control" name="optApi">
+                                        <option value="<?php echo $data['info']['l_id'];?>">
+                                            <?php echo $data['info']['l_title'];?>
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="optType">选择参数类型</label>
+                                    <select class="form-control" name="optType" id="optType" onchange="OptType(this)">
+                                        <option value="1">请求参数</option>
+                                        <option value="2">返回参数</option>
+                                        <option value="3">错误码</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <?php if($data['info']['l_data']==1):?>
+                    <div class="layui-tab-item">
+                        <form id="admin-datainfo">
+                            <div class="tile">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <div class="apihttp">
+                                                <div class="row">
+                                                    <div class="col-lg-5">
+                                                        <div class="form-group">
+                                                            <label for="optApi">绑定接口</label>
+                                                            <input type="hidden" name="optApi" id="optApi"
+                                                                value="<?php echo $data['info']['l_id'];?>">
+                                                            <select class="form-control" disabled="disabled">
+                                                                <option value="<?php echo $data['info']['l_id'];?>">
+                                                                    <?php echo $data['info']['l_title'];?>
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-7">
+                                                        <div class="form-group">
+                                                            <label for="val">自定义请求参数</label>
+                                                            <input class="form-control" id="val" type="text"
+                                                                aria-describedby="val" name="val"
+                                                                value="<?php echo $data['data']['b_val'];?>"
+                                                                placeholder="page,list 多个用 , 隔开">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="apihttp">
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <div class="form-group">
+                                                            <label for="table">选择绑定数据表</label>
+                                                            <select class="form-control" name="table" id="table">
+                                                                <?php 
+                                                                $isno=['api_admin','api_user','api_whitelist','api_binding','api_order','api_owned','api_parameter','api_price'];
+                                                                if(!empty($data['data']['b_table'])):?>
+                                                                <option value="<?php echo $data['data']['b_table'];?>">
+                                                                    <?php echo $data['data']['b_table'];?>
+                                                                </option>
+                                                                <?php endif; 
+                                                                if(isset($data['table']) && !empty($data['table'])):
+                                                                foreach ($data['table'] as $k => $v) : 
+                                                                if($data['data']['b_table']!=$v):
+                                                                if(!in_array($v,$isno)):?>
+                                                                <option value="<?php echo $v; ?>">
+                                                                    <?php echo $v; ?>
+                                                                </option>
+                                                                <?php endif;
+                                                                endif;
+                                                                endforeach;
+                                                                endif; ?>
+                                                            </select>
+                                                            <div class="form-group">
+                                                                <input id="getField" type="button" value="获取字段"
+                                                                    class="form-control btn btn-info btn-sm">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-3">
+                                                        <div class="form-group">
+                                                            <label for="where">条件字段</label>
+                                                            <input class="form-control" id="where" type="text"
+                                                                aria-describedby="where" name="where"
+                                                                value="<?php echo $data['data']['b_where'];?>"
+                                                                placeholder="a_u_id>1 AND 1=1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <label for="item">取出数量</label>
+                                                            <input class="form-control" id="item" type="text"
+                                                                aria-describedby="item" name="item"
+                                                                value="<?php echo $data['data']['b_list'];?>"
+                                                                placeholder="10">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <label for="sort_field">排序条件字段</label>
+                                                            <input class="form-control" id="sort_field" type="text"
+                                                                aria-describedby="sort_field" name="sort_field"
+                                                                value="<?php echo $data['data']['b_sort_field'];?>"
+                                                                placeholder="id">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-3=2">
+                                                        <div class="form-group">
+                                                            <label for="sort">排序方式</label>
+                                                            <select class="form-control" name="sort" id="sort">
+                                                                <?php if($data['data']['b_sort']==1||$data['data']['b_sort']==""):?>
+                                                                <option value="1">最新</option>
+                                                                <option value="2">最早</option>
+                                                                <?php endif;?>
+                                                                <?php if($data['data']['b_sort']==2):?>
+                                                                <option value="2">最早</option>
+                                                                <option value="1">最新</option>
+                                                                <?php endif;?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <style>
+                                            .xc {
+                                                max-width: auto;
+                                                float: left;
+                                                margin-right: 20px;
+                                            }
+                                        </style>
+                                        <div class="form-group" id="field">
+                                            <label for="ten">选择关联数据字段</label><br>
+                                            <?php if(isset($data['data']) && isset($data['field'])):
+                                            $field = explode(",",$data['data']['b_field']);
+                                            foreach($data['field'] as $k=>$v):?>
+                                            <div class="animated-checkbox xc">
+                                                <label>
+                                                    <input <?php if(in_array($v,$field)){echo 'checked="checked"';}?>
+                                                        name="field[<?php echo $k;?>]" type="checkbox"
+                                                        value="<?php echo $v;?>">
+                                                    <span class="label-text"><?php echo $v;?></span>
+                                                </label>
+                                            </div>
+                                            <?php endforeach;
+                                            endif;?>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tile-footer">
+                                    <input value="datainfo" name="target" style="display: none">
+                                    <button type="button" class="btn btn-primary">保存</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <?php endif;?>
+                    <div class="layui-tab-item">
+                        <div class="tile mb-4">
+                            <form id="admin-charge">
+                                <div class="tile-body">
+                                    <div class="form-group">
+                                        <label class="control-label">月付</label>
+                                        <input class="form-control" type="text"
+                                            value="<?php echo $data['price']['p_month'];?>" name="month"
+                                            placeholder="请输入每月的价格">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">季付</label>
+                                        <input class="form-control" value="<?php echo $data['price']['p_season'];?>"
+                                            type="text" name="season" placeholder="请输入每季的价格">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">年付</label>
+                                        <input class="form-control" value="<?php echo $data['price']['p_year'];?>"
+                                            type="text" name="year" placeholder="请输入每年的价格">
+                                    </div>
+                                </div>
+                                <div class="tile-footer">
+                                    <button type="button" class="btn btn-primary" name="submit"><i
+                                            class="fa fa-fw fa-lg fa-check-circle"></i>修改</button>
+                                    <span style="color:#e60c0c"></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</main>
+<!-- Essential javascripts for application to work-->
+<script src="/assets/awesome/js/jquery-3.2.1.min.js"></script>
+<script src="/assets/awesome/js/popper.min.js"></script>
+<script src="/assets/awesome/js/bootstrap.min.js"></script>
+<script src="/assets/awesome/js/main.js"></script>
+<!-- The javascript plugin to display page loading on top-->
+<script src="/assets/awesome/js/plugins/pace.min.js"></script>
+<!-- Page specific javascripts-->
+<script src="/assets/awesome/js/plugins/chart.js"></script>
+<!-- Data table plugin-->
+<script type="text/javascript" src="/assets/awesome/js/plugins/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/assets/awesome/js/plugins/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript">
+    $('#sampleTable').DataTable();
+</script>
+<script src="/assets/layui/layui.all.js"></script>
+<script>
+
+    //选择类型
+    function OptType(_this) {
+        var type = _this.options[_this.selectedIndex].value;
+        index = layer.load(1, {
+            shade: [0.1, '#fff'] //0.1透明度的白色背景
+        });
+
+        fd = new FormData();
+        fd.append("id", $('#optApi').val());
+        fd.append("type", type);
+        $.ajax({
+            url: '/admin/getVal',
+            type: "POST",
+            timeout: "5000",
+            dataType: "json",
+            contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+            data: fd,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if (data.code == "200") {
+                    layer.close(index);
+                    layer.msg(data.msg, { time: 1500 });
+                    FillVal(data.data);
+                } else {
+                    layer.close(index);
+                    layer.msg(data.msg, { time: 1500 });
+                    FillVal(data.data);
+                }
+            },
+            error: function (XMLResponse) {
+                layer.close(index);
+                layer.msg(XMLResponse.error);
+            }
+        });
+    }
+
+    //删除参数
+    function DelVal(_this) {
+        var td = _this.parentNode;
+        var tr = td.parentNode;
+        var tbody = tr.parentNode;
+        var body = tbody.parentNode;
+        console.log(_this.title);
+        // body.removeChild(tbody);
+        //询问框
+        layer.confirm('确定删除参数？', {
+            title: "提示",
+            btn: ['删除', '取消 '] //按钮
+        }, function () {
+            fd = new FormData();
+            fd.append("id", _this.title);
+            $.ajax({
+                url: '/admin/delval',
+                type: "POST",
+                timeout: "5000",
+                dataType: "json",
+                contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.code == "200") {
+                        layer.msg(data.msg, { time: 1500 });
+                        body.removeChild(tbody);
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function (XMLResponse) {
+                    layer.msg(XMLResponse.error);
+                }
+            });
+        });
+    }
+
+    //填充参数
+    function FillVal(data) {
+        var val_code = '';
+        console.log(data);
+        if (data == '') {
+            document.getElementById('apival').innerHTML = val_code;
+            return;
+        }
+        data.forEach(element => {
+            console.log(element.pid);
+            val_code = val_code + '<div class="row"> <div class="col-lg-2"> <div class="form-group"> <label for="name0">参数名</label> <input class="form-control" id="name0" type="text" aria-describedby="name0" name="data[0][name]" value="' + element['p_name'] + '" placeholder="url"> </div> </div> <div class="col-lg-2"> <div class="form-group"> <label for="crux0">必填</label> <input class="form-control" id="crux0" type="text" aria-describedby="crux0" name="data[0][crux]" value="' + element['p_crux'] + '" placeholder="是"> </div> </div> <div class="col-lg-3"> <div class="form-group"> <label for="type0">参数类型</label> <input class="form-control" id="type0" type="text" aria-describedby="type0" name="data[0][type]" value="' + element['p_type'] + '" placeholder="string"> </div> </div> <div class="col-lg-4"> <div class="form-group"> <label for="desc0">参数说明</label> <input class="form-control" id="desc0" type="text" aria-describedby="desc0" name="data[0][desc]" value="' + element['p_desc'] + '" placeholder="需要进行操作网址"> </div> </div> <div class="col-lg-1"> <div class="form-group"> <label for="desc0">&nbsp操作</label> <input type="button" value="删除" title="' + element['p_id'] + '" onclick="DelVal(this)" class="form-control btn btn-danger btn-sm"></button> </div> </div> </div>';
+        });
+        console.log(val_code);
+        document.getElementById('apival').innerHTML = val_code;
+    }
+
+    //获取字段
+    $('#getField').click(function () {
+        fd = new FormData();
+        fd.append("field", $("#table").val());
+        $.ajax({
+            url: '/admin/getField',
+            type: "POST",
+            timeout: "3000",
+            dataType: "json",
+            contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+            data: fd,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if (data.code == "200") {
+                    layer.msg(data.msg);
+                    $('#field').html(field_html(data.data));
+                } else {
+                    layer.msg(data.msg);
+                }
+            },
+            error: function (XMLResponse) {
+                layer.msg(XMLResponse.error);
+            }
+        });
+    });
+
+    //字段生成器
+    function field_html(data) {
+        var code_top = '<label for="ten">选择关联数据字段</label><br>';
+        var code_main = '';
+        var code_bottom = '';
+        var i = 0;
+        data.forEach(element => {
+            code_main = code_main + '<div class="animated-checkbox xc"> <label> <input name="field[' + i + ']" type="checkbox" value="' + element + '"><span class="label-text">' + element + '</span> </label> </div>';
+            i++;
+        });
+        return code_top + code_main;
+    }
+
+    //基本信息提交
+    $('#admin-editapi button').click(function () {
+        index = layer.load(1, {
+            shade: [0.1, '#fff'] //0.1透明度的白色背景
+        });
+        fd = new FormData(document.getElementById('admin-editapi'));
+        fd.append('id', $('#optApi').val())
+        $.ajax({
+            url: '/admin/editapi',
+            type: "POST",
+            timeout: "5000",
+            dataType: "json",
+            contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+            data: fd,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                layer.close(index);
+                if (data.code == "200") {
+                    layer.msg(data.msg, { time: 1500 }, function () {
+                        location.reload();
+                    });
+                } else {
+                    layer.msg(data.msg);
+                }
+            },
+            error: function (XMLResponse) {
+                layer.msg(XMLResponse.error);
+            }
+        });
+    });
+
+    //添加数据
+    $('#admin-datainfo button').click(function () {
+        if ($("input[type='checkbox']").is(':checked')) {
+            fd = new FormData(document.getElementById('admin-datainfo'));
+            $.ajax({
+                url: '/admin/datainfo',
+                type: "POST",
+                timeout: "5000",
+                dataType: "json",
+                contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.code == "200") {
+                        layer.msg(data.msg, { time: 1500 }, function () {
+                            location.reload();
+                        });
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function (XMLResponse) {
+                    layer.msg(XMLResponse.error);
+                }
+            });
+        } else {
+            layer.msg("请先选择关联字段");
+        }
+    });
+
+    //价格
+    $('#admin-charge button').click(function () {
+        if ($("input[type='checkbox']").is(':checked')) {
+            fd = new FormData(document.getElementById('admin-charge'));
+            fd.append("id", $('#optApi').val());
+            $.ajax({
+                url: '/admin/charge',
+                type: "POST",
+                timeout: "5000",
+                dataType: "json",
+                contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.code == "200") {
+                        layer.msg(data.msg, { time: 1500 }, function () {
+                            location.reload();
+                        });
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function (XMLResponse) {
+                    layer.msg(XMLResponse.error);
+                }
+            });
+        } else {
+            layer.msg("请先选择关联字段");
+        }
+    });
+
+    /*提交按下*/
+    $('#admin-apiinfo button').click(function () {
+        //判断是否存在接口
+        if ($('#optApi').val() == null) {
+            layer.msg("请选择绑定接口");
+            return;
+        }
+        /*实例化表单数据*/
+        var fd = new FormData(document.getElementById('admin-apiinfo'));
+        $.ajax({
+            url: '/admin/apiinfo',
+            type: "POST",
+            timeout: "5000",
+            dataType: "json",
+            contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+            data: fd,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if (data.code == "200") {
+                    layer.msg(data.msg, { time: 1000 }, function () {
+                        location.reload();
+                    });
+                } else {
+                    layer.msg(data.msg);
+                }
+            },
+            error: function (XMLResponse) {
+                layer.msg(XMLResponse.error);
+            }
+        });
+    });
+
+</script>
+</body>
+
+</html>

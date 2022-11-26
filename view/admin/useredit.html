@@ -1,0 +1,114 @@
+<?php
+  require __DIR__.'/head.html';
+  $File_Ming = 'payset';
+  ?>
+<style>
+    .app-content {
+        margin-left: 0px;
+        margin-top: 0px !important;
+    }
+
+    .layui-tab-content {
+        padding: 0;
+    }
+
+    .layui-tab-card {
+        box-shadow: 0 0px 5px 0 rgba(0, 0, 0, .0);
+        border: 0;
+    }
+
+    .layui-tab-title {
+        margin-bottom: 5px;
+        border-radius: 3px;
+    }
+
+    .app-content {
+        padding: 0px 12px;
+        background-color: #fff;
+    }
+</style>
+<!-- 主体 -->
+<main class="app-content">
+
+    <div class="row">
+        <div class="col-md-12">
+            <form id="admin-useredit">
+                <div class="tile">
+                    <div class="tile-body">
+                        <div class="form-group">
+                            <label class="control-label">用户账号</label>
+                            <input class="form-control" type="text" name="user" value="<?php echo $data['u_name'];?>"
+                                placeholder="用户账号">
+                            <input type="hidden" name="id" value="<?php echo $data['u_id'];?>">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">用户邮箱</label>
+                            <input class="form-control" type="text" name="email" value="<?php echo $data['u_email'];?>"
+                                placeholder="用户邮箱">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">当前余额</label>
+                            <input class="form-control" type="text" value="<?php echo $data['u_balance'];?>"
+                                disabled="disabled" placeholder="用户余额">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">充值加款</label>
+                            <input class="form-control" type="text" name="balance" value="0" placeholder="请输入加款数额">
+                        </div>
+
+                    </div>
+                    <div class="tile-footer">
+                        <button type="button" class="btn btn-primary" name="submit" type="submit"><i
+                                class="fa fa-fw fa-lg fa-check-circle"></i>保存</button>
+                        <span style="color:#e60c0c"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Essential javascripts for application to work-->
+    <script src="/assets/awesome/js/jquery-3.2.1.min.js"></script>
+    <script src="/assets/awesome/js/popper.min.js"></script>
+    <script src="/assets/awesome/js/bootstrap.min.js"></script>
+    <script src="/assets/awesome/js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="/assets/awesome/js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script src="/assets/awesome/js/plugins/chart.js"></script>
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="/assets/awesome/js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/assets/awesome/js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $('#sampleTable').DataTable();
+    </script>
+    <script src="/assets/layui/layui.all.js"></script>
+    <script>
+        $('#admin-useredit button').click(function () {
+            fd = new FormData(document.getElementById('admin-useredit'));
+            $.ajax({
+                url: '/admin/useredit',
+                type: "POST",
+                timeout: "5000",
+                dataType: "json",
+                contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.code == "200") {
+                        layer.msg(data.msg, { time: 1500 }, function () {
+                            window.parent.location.reload();//刷新父页面
+                        });
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function (XMLResponse) {
+                    layer.msg(XMLResponse.error);
+                }
+            });
+        });
+    </script>
+    </body>
+
+    </html>

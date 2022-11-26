@@ -1,0 +1,69 @@
+<?php $ve = 'active';
+$va = 'is-expanded'; ?>
+<!-- Sidebar menu-->
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+  <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../favicon.ico" alt="User Image">
+    <div>
+      <p class="app-sidebar__user-name">欢迎来到用户中心！</p>
+      <p class="app-sidebar__user-designation"><?php echo date('Y-m-d H:i'); ?></p>
+    </div>
+  </div>
+  <ul class="app-menu">
+
+    <li>
+      <a class="app-menu__item <?php if ($File_Ming == 'index') { echo $ve; } ?>" href="/user">
+        <i class="app-menu__icon fa fa-dashboard"></i>
+        <span class="app-menu__label">基本信息</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="app-menu__item <?php if ($File_Ming == 'owned') { echo $ve; } ?>" href="/user/owned.html">
+        <i class="app-menu__icon fa fa-shopping-cart"></i>
+        <span class="app-menu__label">我的接口</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="app-menu__item <?php if ($File_Ming == 'goods') { echo $ve; } ?>" href="/user/goods.html">
+        <i class="app-menu__icon fa fa-list-alt"></i>
+        <span class="app-menu__label">产品列表</span>
+      </a>
+    </li>
+
+    <li class="treeview <?php if($File_Ming=='buyapi'||$File_Ming=='buypay'){echo $va;}?>">
+      <a class="app-menu__item" href="#" data-toggle="treeview">
+        <i class="app-menu__icon fa fa-edit"></i>
+        <span class="app-menu__label">消费记录</span>
+        <i class="treeview-indicator fa fa-angle-right"></i>
+      </a>
+      <ul class="treeview-menu">
+        <li>
+          <a class="treeview-item <?php if($File_Ming=='buyapi'){echo $ve;}?>" href="/user/buyapi.html">
+            <i class="icon fa fa-circle-o"></i> 购买记录</a>
+        </li>
+
+        <li>
+          <a class="treeview-item <?php if($File_Ming=='buypay'){echo $ve;}?>" href="/user/buypay.html">
+            <i class="icon fa fa-circle-o"></i> 充值记录</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <a class="app-menu__item " href="/" target="_blank">
+        <i class="app-menu__icon fa fa-laptop"></i>
+        <span class="app-menu__label">网站首页</span>
+      </a>
+    </li>
+    <li>
+      <a class="app-menu__item <?php if ($File_Ming == 'logout') { echo $ve; } ?>" href="/user/logout">
+        <i class="app-menu__icon fa fa-sign-in"></i>
+        <span class="app-menu__label">退出登录</span>
+      </a>
+    </li>
+
+
+  </ul>
+</aside>

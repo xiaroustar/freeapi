@@ -1,0 +1,102 @@
+<?php
+  require __DIR__.'/head.html';
+  require __DIR__.'/header.html';
+  $File_Ming = 'index';
+  require __DIR__.'/nav.html';
+  ?>
+<main class="app-content">
+    <div class="app-title">
+        <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item">基本信息</li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small primary coloured-icon"><i class="icon fa ly iconxianshanglianjie"></i>
+                <div class="info">
+                    <h4>账户余额</h4>
+                    <p><b><?php echo $_SESSION['userinfo']['u_balance'];?>元</b></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small warning coloured-icon"><i class="icon fa ly iconjinrirenwu"></i>
+                <div class="info">
+                    <h4>已购接口</h4>
+                    <p><b><?php echo count($data['u_api']);?>个</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small danger coloured-icon"><i class="icon fa ly iconjilu"></i>
+                <div class="info">
+                    <h4>累计消费</h4>
+                    <p><b><?php echo ($data['profit']);?>元</b></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small info coloured-icon"><i class="icon fa ly iconjinri"></i>
+                <div class="info">
+                    <h4>当前时间</h4>
+                    <p><b><?php echo date('Y-m-d H:i'); ?></b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 30px;">
+
+        <div class="col-md-12">
+            <div class="layui-card ptch-overflow-y" style="height:520px;">
+                <div class="layui-card-header">
+                    最新动态
+                    <i class="layui-icon layui-icon-tips" lay-tips="要支持的噢" lay-offset="5"></i>
+                </div>
+                <div class="layui-card-body layui-text layadmin-text">
+                    <ul class="layui-timeline">
+                        <?php if(!empty($data['api'])):
+                        foreach($data['api'] as $k=>$v):?>
+                        <li class="layui-timeline-item">
+                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                            <div class="layui-timeline-content layui-text">
+                                <h3 class="layui-timeline-title">
+                                    <?php echo date('m月d日',strtotime($v['l_found_time']));?></h3>
+                                <p>
+                                    <?php echo $v['l_title'];?>
+                                    <br>
+                                    <?php echo $v['l_desc'];?>
+                                    <i class="layui-icon"></i>
+                                </p>
+                            </div>
+                        </li>
+                        <?php endforeach;
+                        endif;?>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+    <?php  require __DIR__.'/fooer.html'; ?>
+    <script>
+        layui.use('carousel', function () {
+            var carousel = layui.carousel;
+            //建造实例
+            carousel.render({
+                elem: '#test-carousel-normal',
+                width: '100%' //设置容器宽度
+                ,
+                height: '238px' //设置容器宽度
+                ,
+                arrow: 'always' //始终显示箭头
+                //,anim: 'updown' //切换动画方式
+            });
+        });
+    </script>

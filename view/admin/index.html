@@ -1,0 +1,148 @@
+<?php
+  require __DIR__.'/head.html';
+  require __DIR__.'/header.html';
+  $File_Ming = 'index';
+  require __DIR__.'/nav.html';
+  ?>
+<main class="app-content">
+    <div class="app-title">
+        <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item"><a href="">后台首页</a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
+                <div class="info">
+                    <h4>平台会员</h4>
+                    <p><b>
+                            <?php echo count($data['total']);?>人
+                        </b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small info coloured-icon"><i class="icon fa ly iconjinri"></i>
+                <div class="info">
+                    <h4>今日注册</h4>
+                    <p><b>
+                            <?php echo count($data['register']);?>人
+                        </b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small warning coloured-icon"><i class="icon fa ly iconjinrirenwu"></i>
+                <div class="info">
+                    <h4>累计收益</h4>
+                    <p><b>
+                            <?php echo $data['profit'];?>元
+                        </b></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
+                <div class="info">
+                    <h4>平台接口</h4>
+                    <p><b>
+                            <?php echo count($data['api']);?>个
+                        </b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-md-7 ptch-index-info">
+
+            <div class="layui-card ptch-overflow-y" style="height: auto">
+                <div class="layui-card-header">
+                    使用说明
+                    <i class="layui-icon layui-icon-tips" lay-tips="要支持的噢" lay-offset="5"></i>
+                </div>
+                <div class="layui-card-body layui-text layadmin-text">
+                    <p>1.接口添加在接口管理中,通过其的接口添加可以自由的添加新的接口！</p>
+                    <p>2.接口管理者的参数设置，需要先添加接口后才可以设置，参数分为三种：请求、返回、错误。</p>
+                    <p>3.接口管理中的数据绑定，需要在添加接口的时候为需要绑定数据库数据的接口勾选上此操作。</p>
+                    <p>4.支付功能需要先在支付设置里设置码支付相关信息。</p>
+                    <p>5.网站设置中可以设置网站前台的显示信息</p>
+                    <p>6.会员管理中可以对网站注册的会员尽心查看与删除</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-5 ptch-index-info">
+            <div class="layui-card">
+                <div class="layui-card-header">服务器信息</div>
+                <div class="layui-card-body layui-text ptch-overflow-x">
+                    <table class="layui-table">
+                        <colgroup>
+                            <col width="100">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <td>服务器系统</td>
+                                <td>
+                                    <?php $os = explode(" ", php_uname());
+                    echo $os[0]; ?>
+                                    (
+                                    <?php if ('/' == DIRECTORY_SEPARATOR) {
+                      echo $os[2];
+                    } else {
+                      echo $os[1];
+                    } ?>
+                                    )
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PHP运行版本</td>
+                                <td>
+                                    <?php echo PHP_VERSION ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>服务器读写权限 </td>
+                                <td>
+                                    <?php echo is_writable('../config/webset.php') ? '<span style="color: green;">可写</span>' : '<span style="color: red;">不可写</span>' ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>服务器解释引擎</td>
+                                <td style="padding-bottom: 0;">
+                                    <?php echo $_SERVER['SERVER_SOFTWARE']; ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>源码当前版本</td>
+                                <td style="padding-bottom: 0;">
+                                    v
+                                    <?php echo getVersion();?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <?php  require __DIR__.'/fooer.html'; ?>
+    <script>
+        layui.use('carousel', function () {
+            var carousel = layui.carousel;
+            //建造实例
+            carousel.render({
+                elem: '#test-carousel-normal',
+                width: '100%' //设置容器宽度
+                ,
+                height: '238px' //设置容器宽度
+                ,
+                arrow: 'always' //始终显示箭头
+                //,anim: 'updown' //切换动画方式
+            });
+        });
+    </script>

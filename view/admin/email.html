@@ -1,0 +1,99 @@
+<?php
+  require __DIR__.'/head.html';
+  require __DIR__.'/header.html';
+  $File_Ming = 'email';
+  require __DIR__.'/nav.html';
+  ?>
+<main class="app-content">
+    <div class="app-title">
+        <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item"><a href="">邮箱配置</a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <form id="admin-email">
+                <div class="tile">
+                    <div class="tile-body">
+                        <div class="form-group">
+                            <label class="control-label">发件人姓名</label>
+                            <input class="form-control" type="text" name="mail_name"
+                                value="<?php echo $web['mail_name'];?>" placeholder="API官网">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">SMTP地址</label>
+                            <input class="form-control" type="text" name="mail_smtp"
+                                value="<?php echo $web['mail_smtp'];?>" placeholder="smtp.qq.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">SMTP端口</label>
+                            <input class="form-control" type="text" name="mail_port"
+                                value="<?php echo $web['mail_port'];?>" placeholder="465">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">邮箱账号</label>
+                            <input class="form-control" type="text" name="mail_user"
+                                value="<?php echo $web['mail_user'];?>" placeholder="admin@qq.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">邮箱密码（授权码）</label>
+                            <input class="form-control" type="text" name="mail_pwd"
+                                value="<?php echo $web['mail_pwd'];?>" placeholder="xoxoxxox">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">提示：<span style="color:#e60c0c">请确保已经开启了邮箱通讯服务</span></label>
+                        </div>
+                    </div>
+                    <div class="tile-footer">
+                        <button class="btn btn-primary" type="button"><i
+                                class="fa fa-fw fa-lg fa-check-circle"></i>保存</button>
+                        <span style="color:#e60c0c"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <?php  require __DIR__.'/fooer.html'; ?>
+
+    <script>
+        layui.use('carousel', function () {
+            var carousel = layui.carousel;
+            //建造实例
+            carousel.render({
+                elem: '#test-carousel-normal',
+                width: '100%' //设置容器宽度
+                ,
+                height: '238px' //设置容器宽度
+                ,
+                arrow: 'always' //始终显示箭头
+                //,anim: 'updown' //切换动画方式
+            });
+        });
+
+        $('#admin-email button').click(function () {
+            fd = new FormData(document.getElementById('admin-email'));
+            $.ajax({
+                url: '/admin/email',
+                type: "POST",
+                timeout: "5000",
+                dataType: "json",
+                contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.code == "200") {
+                        layer.msg(data.msg);
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function (XMLResponse) {
+                    layer.msg(XMLResponse.error);
+                }
+            });
+        });
+    </script>

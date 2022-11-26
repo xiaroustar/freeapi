@@ -1,0 +1,106 @@
+<?php $ve = 'active';
+$va = 'is-expanded'; ?>
+<!-- Sidebar menu-->
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+  <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="../favicon.ico" alt="User Image">
+    <div>
+      <p class="app-sidebar__user-name">你好，管理员</p>
+      <p class="app-sidebar__user-designation"><?php echo date('Y-m-d H:i'); ?></p>
+    </div>
+  </div>
+  <ul class="app-menu">
+
+    <li>
+      <a class="app-menu__item <?php if ($File_Ming == 'index') { echo $ve; } ?>" href="/<?php echo ADMIN_PATH;?>">
+        <i class="app-menu__icon fa fa-dashboard"></i>
+        <span class="app-menu__label">控制台</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="app-menu__item <?php if ($File_Ming == 'webset') { echo $ve; } ?>" href="/<?php echo ADMIN_PATH;?>/webset.html">
+        <i class="app-menu__icon fa fa-gear"></i>
+        <span class="app-menu__label">网站设置</span>
+      </a>
+    </li>
+
+    <li
+      class="treeview <?php if($File_Ming=='addapi'||$File_Ming=='apiinfo'||$File_Ming=='apilist'||$File_Ming=='datainfo'||$File_Ming=='fileinfo'){echo $va;}?>">
+      <a class="app-menu__item" href="#" data-toggle="treeview">
+        <i class="app-menu__icon fa fa-rocket"></i>
+        <span class="app-menu__label">接口管理</span>
+        <i class="treeview-indicator fa fa-angle-right"></i>
+      </a>
+      <ul class="treeview-menu">
+        <li>
+          <a class="treeview-item <?php if($File_Ming=='addapi'){echo $ve;}?>" href="/<?php echo ADMIN_PATH;?>/addapi.html">
+            <i class="icon fa fa-circle-o"></i> 接口添加</a>
+        </li>
+        <li>
+          <a class="treeview-item <?php if($File_Ming=='apiinfo'){echo $ve;}?>" href="/<?php echo ADMIN_PATH;?>/apiinfo.html">
+            <i class="icon fa fa-circle-o"></i> 参数设置</a>
+        </li>
+        <li>
+          <a class="treeview-item <?php if($File_Ming=='datainfo'){echo $ve;}?>" href="/<?php echo ADMIN_PATH;?>/datainfo.html">
+            <i class="icon fa fa-circle-o"></i> 数据绑定</a>
+        </li>
+        <li>
+          <a class="treeview-item <?php if($File_Ming=='fileinfo'){echo $ve;}?>" href="/<?php echo ADMIN_PATH;?>/fileinfo.html">
+            <i class="icon fa fa-circle-o"></i> 文件绑定</a>
+        </li>
+        <li>
+          <a class="treeview-item <?php if($File_Ming=='apilist'){echo $ve;}?>" href="/<?php echo ADMIN_PATH;?>/apilist.html">
+            <i class="icon fa fa-circle-o"></i> 接口列表</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="treeview <?php if($File_Ming=='userinfo'||$File_Ming=='adduser'){echo $va;}?>">
+      <a class="app-menu__item" href="#" data-toggle="treeview">
+        <i class="app-menu__icon fa fa-users"></i>
+        <span class="app-menu__label">会员管理</span>
+        <i class="treeview-indicator fa fa-angle-right"></i>
+      </a>
+      <ul class="treeview-menu">
+        <li>
+          <a class="treeview-item <?php if($File_Ming=='adduser'){echo $ve;}?>" href="/<?php echo ADMIN_PATH;?>/adduser.html">
+            <i class="icon fa fa-circle-o"></i> 添加会员</a>
+        </li>
+        <li>
+          <a class="treeview-item <?php if($File_Ming=='userinfo'){echo $ve;}?>" href="/<?php echo ADMIN_PATH;?>/userinfo.html">
+            <i class="icon fa fa-circle-o"></i> 会员列表</a>
+        </li>
+
+      </ul>
+    </li>
+
+    <li>
+      <a class="app-menu__item <?php if ($File_Ming == 'order') {echo $ve;} ?>" href="/<?php echo ADMIN_PATH;?>/order.html">
+        <i class="app-menu__icon fa fa-edit"></i>
+        <span class="app-menu__label">订单记录</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="app-menu__item <?php if ($File_Ming == 'email') {echo $ve;} ?>" href="/<?php echo ADMIN_PATH;?>/email.html">
+        <i class="app-menu__icon fa fa-envelope"></i>
+        <span class="app-menu__label">邮箱配置</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="app-menu__item <?php if ($File_Ming == 'redis') {echo $ve;} ?>" href="/<?php echo ADMIN_PATH;?>/redis.html">
+        <i class="app-menu__icon fa fa-btc"></i>
+        <span class="app-menu__label">Redis配置</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="app-menu__item" href="../" target="_blank">
+        <i class="app-menu__icon fa fa-home"></i>
+        <span class="app-menu__label">访问前台</span>
+      </a>
+    </li>
+  </ul>
+</aside>

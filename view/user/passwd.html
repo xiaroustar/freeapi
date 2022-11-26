@@ -1,0 +1,80 @@
+<?php
+  require __DIR__.'/head.html';
+  require __DIR__.'/header.html';
+  $File_Ming = 'passwd';
+  require __DIR__.'/nav.html';
+  ?>
+<main class="app-content">
+    <div class="app-title">
+        <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item"><a href="">修改密码</a></li>
+        </ul>
+    </div>
+    <div class="tile mb-4">
+        <form id="user-passwd">
+            <div class="tile-body">
+                <div class="form-group">
+                    <label class="control-label">旧密码</label>
+                    <input class="form-control" type="text" name="old_passwd" placeholder="求输入旧密码">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">新密码</label>
+                    <input class="form-control" type="text" name="new_passwd" placeholder="请输入新密码">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">确定新密码</label>
+                    <input class="form-control" type="text" name="news_passwd" placeholder="请再次输入新密码">
+                </div>
+            </div>
+            <div class="tile-footer">
+                <button type="button" class="btn btn-primary" name="submit"><i
+                        class="fa fa-fw fa-lg fa-check-circle"></i>修改</button>
+                <span style="color:#e60c0c"></span>
+            </div>
+        </form>
+    </div>
+
+    <?php  require __DIR__.'/fooer.html'; ?>
+
+    <script>
+        layui.use('carousel', function () {
+            var carousel = layui.carousel;
+            //建造实例
+            carousel.render({
+                elem: '#test-carousel-normal',
+                width: '100%' //设置容器宽度
+                ,
+                height: '238px' //设置容器宽度
+                ,
+                arrow: 'always' //始终显示箭头
+                //,anim: 'updown' //切换动画方式
+            });
+        });
+
+        $('#user-passwd button').click(function () {
+            fd = new FormData(document.getElementById('user-passwd'));
+            $.ajax({
+                url: '/user/passwd',
+                type: "POST",
+                timeout: "5000",
+                dataType: "json",
+                contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.code == "200") {
+                        layer.msg(data.msg, { time: 1500 }, function () {
+                            window.location.href = '/user/logout';
+                        });
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function (XMLResponse) {
+                    layer.msg(XMLResponse.error);
+                }
+            });
+        });
+    </script>

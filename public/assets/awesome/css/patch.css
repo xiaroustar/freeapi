@@ -1,0 +1,52 @@
+.app-breadcrumb li {
+	font-size: 20px;
+	color: #343a40;
+	font-weight: bold;
+}
+
+.app-breadcrumb li a {
+	color: #343a40;
+}
+
+.ptch-overflow-x {
+	overflow-x: auto;
+}
+
+.ptch-overflow-y {
+	overflow-y: auto;
+}
+
+.table-space th,
+td {
+	white-space: nowrap;
+	max-width: 100%;
+}
+
+.table {
+	margin: 0;
+}
+
+.api-list-cz a {
+	color: #fff !important;
+}
+
+.layui-layer-btn .layui-layer-btn0 {
+	color: #fff !important;
+}
+
+.layui-layer-shade {
+	background-color: rgba(0, 0, 0, 0.18) !important;
+}
+
+.row-table-scroll .col-sm-12 {
+	overflow-x: scroll;
+	/* margin-right: 20px;
+	margin-left: 20px; */
+	padding: 0;
+}
+
+@media (max-width: 480px) {
+	.ptch-index-info {
+		margin-top: 15px;
+	}
+}

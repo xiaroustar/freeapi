@@ -1,0 +1,160 @@
+<?php
+  require __DIR__.'/head.html';
+  $File_Ming = 'apiedit';
+  ?>
+<style>
+    .app-content {
+        margin-left: 0px;
+        margin-top: 0px !important;
+    }
+
+    .layui-tab-content {
+        padding: 0;
+    }
+
+    .layui-tab-card {
+        box-shadow: 0 0px 5px 0 rgba(0, 0, 0, .0);
+        border: 0;
+    }
+
+    .layui-tab-title {
+        margin-bottom: 5px;
+        border-radius: 3px;
+    }
+
+    .app-content {
+        padding: 0px 12px;
+        background-color: #fff;
+    }
+
+    .tile {
+        margin-bottom: 0px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0), 0 1px 5px 0 rgba(0, 0, 0, 0.00), 0 3px 1px -2px rgba(0, 0, 0, 0.0);
+    }
+
+    .layui-form-pane .layui-form-item[pane] {
+        text-align: center;
+    }
+
+    .zongji {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .zongji b {
+        font-size: 18px;
+        color: red;
+        margin-right: 5px;
+    }
+
+    .zongji span {
+        color: coral;
+    }
+
+    .t-t-t-t {
+        width: 60px;
+        position: absolute;
+        top: 50px;
+        right: 20px;
+    }
+</style>
+<!-- 主体 -->
+<main class="app-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <form class="layui-form layui-form-pane" id="user-apiedit">
+                    <div class="form-group">
+                        <label class="control-label">接口密钥</label>
+                        <input class="form-control" type="text" value="<?php echo $data['ow_md5'];?>"
+                            readonly="readonly" style="padding-right: 68px;">
+                        <div class="t-t-t-t">
+                            <button type="button" title="<?php echo $data['ow_id'];?>" onclick="editKey(this)"
+                                class="btn btn-primary btn-block">更新</button>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label class="control-label">接口白名单</label>
+                        <textarea class="form-control" name="roster" cols="30" rows="3"
+                            placeholder="127.0.0.1 多个请用 ; 隔开"><?php echo $data['ow_ip'];?></textarea>
+                    </div>
+                    <div style="text-align: center;margin: auto;">
+                        <button title="<?php echo $data['ow_id'];?>" onclick="editip(this)" type="button"
+                            class="btn btn-primary btn-block">保存</button>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Essential javascripts for application to work-->
+    <script src="/assets/other/js/jquery.min.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="/assets/awesome/js/plugins/pace.min.js"></script>
+    <script src="/assets/layui/layui.all.js"></script>
+    <script type="text/javascript">
+        function editKey(_this) {
+            console.log(_this.title);
+            //询问框
+            layer.confirm('是否更新当前接口密钥？', {
+                btn: ['更新', '取消'] //按钮
+            }, function () {
+                fd = new FormData();
+                fd.append('id', _this.title);
+                $.ajax({
+                    url: '/user/owned',
+                    type: "POST",
+                    timeout: "5000",
+                    dataType: "json",
+                    contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+                    data: fd,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        if (data.code == "200") {
+                            layer.msg(data.msg, { time: 1000 }, function () {
+                                window.parent.location.reload();//刷新父页面
+                            });
+                        } else {
+                            layer.msg(data.msg);
+                        }
+                    },
+                    error: function (XMLResponse) {
+                        layer.msg(XMLResponse.error);
+                    }
+                });
+            });
+        }
+
+        function editip(_this) {
+            console.log(_this.title);
+            fd = new FormData(document.getElementById('user-apiedit'));
+            fd.append('id', _this.title);
+            $.ajax({
+                url: '/user/apiip',
+                type: "POST",
+                timeout: "5000",
+                dataType: "json",
+                contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.code == "200") {
+                        layer.msg(data.msg, { time: 1000 }, function () {
+                            location.reload();//刷新父页面
+                        });
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function (XMLResponse) {
+                    layer.msg(XMLResponse.error);
+                }
+            });
+        }
+    </script>
+    </body>
+
+    </html>

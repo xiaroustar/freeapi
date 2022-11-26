@@ -1,0 +1,905 @@
+:root,
+:root[theme] {
+    --app-TemplateModal-text-color-secondary-light: fade(@black, 25%)
+}
+
+:root[theme=dark] {
+    --app-TemplateModal-text-color-secondary-light: fade(@white, 25%)
+}
+
+.pui-components-template-modal-index-modal-container .ui-collapse-content-box {
+    padding-top: 0
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-form {
+    min-height: 400px;
+    max-height: 500px;
+    overflow-y: hidden
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-form .ui-radio-group {
+    width: 100%
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-expression,
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-preview {
+    padding: 14px 16px
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-border {
+    border-top: 1px solid var(--app-bg-300)
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-border:last-child {
+    border-bottom: 1px solid var(--app-bg-300)
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-collapse.ui-collapse {
+    --ui-collapse-header-bg: transparent;
+    --ui-heading-color: var(--app-text-fg-medium)
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-collapse.ui-collapse>.ui-collapse-item {
+    border-bottom: 1px solid var(--app-bg-300)
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-collapse.ui-collapse>.ui-collapse-item>.ui-collapse-header {
+    height: 44px;
+    padding: 10px 12px
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-collapse.ui-collapse>.ui-collapse-item>.ui-collapse-header .ui-collapse-arrow {
+    vertical-align: -4px
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-collapse.ui-collapse .ui-collapse-content>.ui-collapse-content-box {
+    padding: 8px 0 0
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-collapse.ui-collapse .ui-collapse-content {
+    padding: 0 0 0 8px
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-title {
+    margin: 0;
+    padding-left: 8px
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-col {
+    max-height: 400px;
+    overflow-y: scroll;
+    border-right: 1px solid var(--app-bg-300)
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-expression .pui-components-template-modal-index-expression,
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-expression .pui-components-template-modal-index-expression-item {
+    padding-right: 4px;
+    color: var(--app-TemplateModal-text-color-secondary-light);
+    font-weight: 500;
+    font-size: 1.17em
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-expression .pui-components-template-modal-index-expression-item {
+    display: block;
+    color: var(--app-primary-base)
+}
+
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-preview h3,
+.pui-components-template-modal-index-modal-container .pui-components-template-modal-index-modal-container-preview p {
+    word-wrap: break-word
+}
+
+.pui-components-template-modal-simple-option-list-modal-form-options {
+    margin-left: 8px
+}
+
+.pui-components-template-modal-simple-option-list-modal-form-options .pui-components-template-modal-simple-option-list-row {
+    position: relative;
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 8px 16px;
+    cursor: pointer
+}
+
+.pui-components-template-modal-simple-option-list-modal-form-options .pui-components-template-modal-simple-option-list-row.pui-components-template-modal-simple-option-list-row-large {
+    height: 68px
+}
+
+.pui-components-template-modal-simple-option-list-modal-form-options .pui-components-template-modal-simple-option-list-row.pui-components-template-modal-simple-option-list-row-editor {
+    height: 300px
+}
+
+.pui-components-template-modal-simple-option-list-modal-form-options .pui-components-template-modal-simple-option-list-row.pui-components-template-modal-simple-option-list-row-editor .pui-components-template-modal-simple-option-list-input-component {
+    left: 0;
+    width: auto;
+    margin-left: 16px
+}
+
+.pui-components-template-modal-simple-option-list-modal-form-options .pui-components-template-modal-simple-option-list-search-filter {
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding-right: 8px;
+    padding-left: 8px
+}
+
+.pui-components-template-modal-simple-option-list-modal-form-options .pui-components-template-modal-simple-option-list-show-more {
+    height: 67px;
+    padding-left: 8px;
+    color: var(--ui-primary-color);
+    cursor: pointer
+}
+
+.pui-components-template-modal-simple-option-list-modal-form-options .pui-components-template-modal-simple-option-list-input-component {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 150px;
+    margin-right: 16px
+}
+
+.pui-components-template-modal-simple-option-list-modal-form-options .pui-components-template-modal-simple-option-list-input-component .ui-select {
+    width: 100%
+}
+
+.pui-components-template-modal-simple-option-list-modal-form-options .pui-components-template-modal-simple-option-list-title {
+    margin-bottom: 0;
+    padding-left: 8px
+}
+
+.pui-components-template-modal-simple-option-list-modal-form-options .pui-components-template-modal-simple-option-list-option-desc {
+    color: var(--app-TemplateModal-text-color-secondary-light)
+}
+
+.pui-components-template-modal-variables-select-modal-form-variable {
+    margin-left: 8px
+}
+
+.pui-components-template-modal-variables-select-modal-form-variable .pui-components-template-modal-variables-select-title {
+    margin-bottom: 0;
+    padding-left: 8px
+}
+
+.pui-components-template-modal-variables-select-modal-form-variable .pui-components-template-modal-variables-select-row {
+    position: relative;
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 8px 16px;
+    cursor: pointer
+}
+
+.pui-components-template-modal-variables-select-modal-form-variable .pui-components-template-modal-variables-select-variable-type {
+    margin-bottom: 16px;
+    cursor: normal
+}
+
+.pui-components-template-modal-variables-select-modal-form-variable .pui-components-template-modal-variables-select-variable-type .ui-radio-group {
+    width: auto!important
+}
+
+.pui-components-template-modal-variables-select-modal-form-variable .pui-components-template-modal-variables-select-variable-desc {
+    color: var(--app-TemplateModal-text-color-secondary-light)
+}
+
+.pui-components-template-modal-variables-select-modal-form-variable .pui-components-template-modal-variables-select-input-component {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 150px;
+    margin-right: 16px
+}
+
+.pui-components-template-modal-variables-select-modal-form-variable .pui-components-template-modal-variables-select-input-component .ui-select {
+    width: 100%
+}
+
+.pui-components-template-modal-variables-select-modal-form-variable .pui-components-template-modal-variables-select-divider {
+    border-top: 1px solid var(--ui-border-color-base)
+}
+
+.pui-components-templating-input-index-templating-input {
+    height: 32px!important
+}
+
+.pui-components-templating-input-index-templating-input .pui-components-templating-input-index-add-on {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    display: none;
+    width: 30px;
+    cursor: pointer;
+    text-align: center
+}
+
+.pui-components-templating-input-index-templating-input .pui-components-templating-input-index-add-on.pui-components-templating-input-index-add-on-2 {
+    right: 31px
+}
+
+.pui-components-templating-input-index-templating-input .ui-input,
+.pui-components-templating-input-index-templating-input .ui-input-number {
+    height: 32px!important;
+    border: none!important
+}
+
+.pui-components-templating-input-index-templating-input .editor--single-line .editor__container {
+    padding: 0 8px
+}
+
+.pui-components-templating-input-index-templating-input .editor--single-line .editor__container .ui-input {
+    padding: 0 8px
+}
+
+.pui-components-templating-input-index-templating-input .editor--single-line .editor__container .CodeMirror {
+    padding: 0
+}
+
+.pui-components-templating-input-index-templating-input .editor--single-line .editor__container .CodeMirror .CodeMirror-scroll {
+    overflow: hidden!important
+}
+
+.pui-components-templating-input-index-templating-input .editor--single-line .editor__container .CodeMirror pre.CodeMirror-line,
+.pui-components-templating-input-index-templating-input .editor--single-line .editor__container .CodeMirror pre.CodeMirror-line-like {
+    padding: 0
+}
+
+.pui-components-templating-input-index-templating-input .editor--single-line .editor__container .CodeMirror pre.CodeMirror-placeholder {
+    color: var(--ui-input-placeholder-color)!important
+}
+
+.pui-components-templating-input-index-templating-input .editor--single-line .editor__container .CodeMirror-gutter,
+.pui-components-templating-input-index-templating-input .editor--single-line .editor__container .CodeMirror-gutters,
+.pui-components-templating-input-index-templating-input .editor--single-line .editor__container .CodeMirror-linenumber,
+.pui-components-templating-input-index-templating-input .editor--single-line .editor__container .CodeMirror-scroll,
+.pui-components-templating-input-index-templating-input .editor--single-line .editor__container .CodeMirror-sizer {
+    box-sizing: content-box
+}
+
+.pui-components-templating-input-index-templating-input:focus {
+    box-shadow: none
+}
+
+.pui-components-templating-input-index-templating-input:focus,
+.pui-components-templating-input-index-templating-input:hover,
+.pui-components-templating-input-index-templating-input[data-focused=on] {
+    position: relative
+}
+
+.pui-components-templating-input-index-templating-input:focus:before,
+.pui-components-templating-input-index-templating-input:hover:before,
+.pui-components-templating-input-index-templating-input[data-focused=on]:before {
+    content: " ";
+    border: 1px solid var(--ui-input-hover-border-color)!important;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0
+}
+
+.pui-components-templating-input-index-templating-input:focus .pui-components-templating-input-index-add-on,
+.pui-components-templating-input-index-templating-input:hover .pui-components-templating-input-index-add-on,
+.pui-components-templating-input-index-templating-input[data-focused=on] .pui-components-templating-input-index-add-on {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: var(--ui-input-icon-hover-color)
+}
+
+.pui-components-templating-input-index-templating-input:focus .pui-components-templating-input-index-add-on:focus,
+.pui-components-templating-input-index-templating-input:focus .pui-components-templating-input-index-add-on:hover,
+.pui-components-templating-input-index-templating-input:hover .pui-components-templating-input-index-add-on:focus,
+.pui-components-templating-input-index-templating-input:hover .pui-components-templating-input-index-add-on:hover,
+.pui-components-templating-input-index-templating-input[data-focused=on] .pui-components-templating-input-index-add-on:focus,
+.pui-components-templating-input-index-templating-input[data-focused=on] .pui-components-templating-input-index-add-on:hover {
+    background-color: var(--ui-input-addon-bg);
+    color: var(--ui-primary-color)
+}
+
+.pui-components-templating-input-index-templating-input:focus .editor--single-line.editor,
+.pui-components-templating-input-index-templating-input:hover .editor--single-line.editor,
+.pui-components-templating-input-index-templating-input[data-focused=on] .editor--single-line.editor {
+    padding: 0 60px 0 8px
+}
+
+.pui-components-templating-input-index-templating-input:focus .editor--single-line.editor .editor__container,
+.pui-components-templating-input-index-templating-input:hover .editor--single-line.editor .editor__container,
+.pui-components-templating-input-index-templating-input[data-focused=on] .editor--single-line.editor .editor__container {
+    padding: 0
+}
+
+.pui-components-templating-input-index-templating-input:focus .ui-input,
+.pui-components-templating-input-index-templating-input:hover .ui-input,
+.pui-components-templating-input-index-templating-input[data-focused=on] .ui-input {
+    padding: 0 60px 0 8px
+}
+
+.pui-components-templating-input-template-text-area-modal-container {
+    height: 300px;
+    border: 1px solid rgba(0, 0, 0, .1)
+}
+
+.pui-g-styles-components-table-table .ui-table-small {
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-radius: unset
+}
+
+.pui-g-styles-components-table-table .ui-table-small.ui-table-bordered .ui-table-content {
+    border-right: none
+}
+
+.pui-g-styles-components-table-table .ui-table-small>.ui-table-content>.ui-table-body {
+    margin: 0
+}
+
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table-body table,
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorderTop .ui-table-body table,
+.pui-g-styles-components-table-table.pui-g-styles-components-table-outerBorder .ui-table-body table,
+.pui-g-styles-components-table-table.pui-g-styles-components-table-outerBorderTop .ui-table-body table {
+    border-top: 1px solid var(--ui-border-color-split)
+}
+
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table-tbody>tr>td:last-child,
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table-thead>tr:only-child>th:last-child,
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table-thead>tr>th:last-child,
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorderRight .ui-table-tbody>tr>td:last-child,
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorderRight .ui-table-thead>tr:only-child>th:last-child,
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorderRight .ui-table-thead>tr>th:last-child,
+.pui-g-styles-components-table-table.pui-g-styles-components-table-outerBorder .ui-table-tbody>tr>td:last-child,
+.pui-g-styles-components-table-table.pui-g-styles-components-table-outerBorder .ui-table-thead>tr:only-child>th:last-child,
+.pui-g-styles-components-table-table.pui-g-styles-components-table-outerBorder .ui-table-thead>tr>th:last-child,
+.pui-g-styles-components-table-table.pui-g-styles-components-table-outerBorderRight .ui-table-tbody>tr>td:last-child,
+.pui-g-styles-components-table-table.pui-g-styles-components-table-outerBorderRight .ui-table-thead>tr:only-child>th:last-child,
+.pui-g-styles-components-table-table.pui-g-styles-components-table-outerBorderRight .ui-table-thead>tr>th:last-child {
+    border-right: 1px solid var(--ui-table-border-color)
+}
+
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table.ui-table-bordered>.ui-table-container>.ui-table-body>table>tbody>tr>td:not(:last-child),
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table.ui-table-bordered>.ui-table-container>.ui-table-body>table>tfoot>tr>td:not(:last-child),
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table.ui-table-bordered>.ui-table-container>.ui-table-body>table>tfoot>tr>th:not(:last-child),
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table.ui-table-bordered>.ui-table-container>.ui-table-body>table>thead>tr>th:not(:last-child),
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table.ui-table-bordered>.ui-table-container>.ui-table-content>table>tbody>tr>td:not(:last-child),
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table.ui-table-bordered>.ui-table-container>.ui-table-content>table>tfoot>tr>td:not(:last-child),
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table.ui-table-bordered>.ui-table-container>.ui-table-content>table>tfoot>tr>th:not(:last-child),
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table.ui-table-bordered>.ui-table-container>.ui-table-content>table>thead>tr>th:not(:last-child),
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table.ui-table-bordered>.ui-table-container>.ui-table-header>table>tbody>tr>td:not(:last-child),
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table.ui-table-bordered>.ui-table-container>.ui-table-header>table>tfoot>tr>td:not(:last-child),
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table.ui-table-bordered>.ui-table-container>.ui-table-header>table>tfoot>tr>th:not(:last-child),
+.pui-g-styles-components-table-table.pui-g-styles-components-table-justOuterBorder .ui-table.ui-table-bordered>.ui-table-container>.ui-table-header>table>thead>tr>th:not(:last-child) {
+    border-right: none
+}
+
+.pui-tars-ui-editable-table-app-hasNewLine .ui-table-tbody>tr:last-child td .ui-input,
+.pui-tars-ui-editable-table-app-hasNewLine .ui-table-tbody>tr:last-child td .ui-select-selector-selected-value {
+    color: var(--ui-input-placeholder-color)
+}
+
+.pui-tars-ui-editable-table-app-row-dragging {
+    z-index: 9999;
+    background: var(--app-darken-3);
+    border: 1px solid var(--app-darken-4)
+}
+
+.pui-tars-ui-editable-table-app-row-dragging td {
+    visibility: hidden
+}
+
+.pui-tars-ui-editable-table-app-row-dragging td .sort-drag-handle {
+    margin-left: 7px;
+    cursor: move
+}
+
+.pui-tars-ui-editable-table-app-row-dragging .drag-visible {
+    visibility: visible
+}
+
+.pui-tars-ui-editable-table-app-editableTable {
+    position: relative;
+    --ui-table-row-hover-bg: transparent
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-table-content>table {
+    height: 100%
+}
+
+.pui-tars-ui-editable-table-app-editableTable .required-table-cell {
+    position: relative
+}
+
+.pui-tars-ui-editable-table-app-editableTable .required-table-cell:before {
+    cursor: pointer;
+    position: absolute;
+    content: "";
+    inset: -8px
+}
+
+.pui-tars-ui-editable-table-app-editableTable .required-table-cell .text {
+    display: inline-flex;
+    cursor: pointer
+}
+
+.pui-tars-ui-editable-table-app-editableTable .required-table-cell .check-box {
+    display: none
+}
+
+.pui-tars-ui-editable-table-app-editableTable .required-table-cell:hover .text {
+    display: none
+}
+
+.pui-tars-ui-editable-table-app-editableTable .required-table-cell:hover .check-box {
+    display: inline-flex
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-table-tbody tr .sort-drag-handle {
+    padding: 3px;
+    cursor: move;
+    opacity: .2;
+    font-size: 18px
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-table-tbody tr:hover .sort-drag-handle {
+    opacity: .8
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-table-tbody tr.editable-row:hover {
+    background: var(--app-primary-4)
+}
+
+.pui-tars-ui-editable-table-app-editableTable .delete-icon,
+.pui-tars-ui-editable-table-app-editableTable .more-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.2em;
+    height: 1.2em;
+    cursor: pointer;
+    opacity: .5
+}
+
+.pui-tars-ui-editable-table-app-editableTable .delete-icon:hover {
+    opacity: 1
+}
+
+.pui-tars-ui-editable-table-app-editableTable .more-icon {
+    border-radius: 4px
+}
+
+.pui-tars-ui-editable-table-app-editableTable .more-icon.has-fixed-value {
+    background-color: var(--ui-primary-color);
+    opacity: 1
+}
+
+.pui-tars-ui-editable-table-app-editableTable .more-icon:hover {
+    opacity: 1
+}
+
+.pui-tars-ui-editable-table-app-editableTable .actions-wrap {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    height: 38px;
+    margin-right: 10px;
+    line-height: 38px
+}
+
+.pui-tars-ui-editable-table-app-editableTable .has-actions .ui-table.ui-table-bordered>.ui-table-container>.ui-table-content>table>tbody.ui-table-tbody>tr>td:nth-last-child(2),
+.pui-tars-ui-editable-table-app-editableTable .has-actions .ui-table.ui-table-bordered>.ui-table-container>.ui-table-content>table>thead.ui-table-thead>tr>th:nth-last-child(2) {
+    border-right: none
+}
+
+.pui-tars-ui-editable-table-app-editableTable .readonly-value-wrap {
+    padding: 0 8px
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-input,
+.pui-tars-ui-editable-table-app-editableTable .ui-input-number {
+    background-color: transparent;
+    border-color: transparent!important
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-input-group .ui-input,
+.pui-tars-ui-editable-table-app-editableTable .ui-input-group .ui-input-number {
+    border-color: var(--ui-input-border-color)!important
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-input {
+    padding: 4px 8px
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-input-number:hover,
+.pui-tars-ui-editable-table-app-editableTable .ui-input:hover {
+    border-color: var(--ui-input-hover-border-color)!important
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-input-number:focus,
+.pui-tars-ui-editable-table-app-editableTable .ui-input:focus {
+    border-color: var(--ui-input-hover-border-color)!important;
+    box-shadow: none
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-input-number[disabled],
+.pui-tars-ui-editable-table-app-editableTable .ui-input[disabled] {
+    color: var(--ui-input-color)
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-input-number {
+    width: 100%;
+    border-radius: 0
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-checkbox-disabled {
+    cursor: not-allowed
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-checkbox-disabled.ui-checkbox-checked .ui-checkbox-inner:after {
+    border-color: var(--ui-checkbox-check-color);
+    animation-name: none
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-checkbox-disabled .ui-checkbox-input {
+    cursor: not-allowed
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-checkbox-disabled .ui-checkbox {
+    border-color: var(--ui-checkbox-check-color)!important
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-checkbox-disabled .ui-checkbox:after {
+    border-color: var(--ui-checkbox-check-color);
+    border-collapse: separate;
+    animation-name: none
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-checkbox-disabled+span {
+    color: red;
+    cursor: not-allowed
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-checkbox-disabled:hover:after,
+.pui-tars-ui-editable-table-app-ui-checkbox-wrapper:hover .pui-tars-ui-editable-table-app-editableTable .ui-checkbox-disabled:after {
+    visibility: visible
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-select-selector,
+.pui-tars-ui-editable-table-app-editableTable .ui-select-single:not(.ui-select-customize-input) .ui-select-selector {
+    background-color: transparent;
+    border-color: transparent!important;
+    border-radius: 0
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-select-selector:hover,
+.pui-tars-ui-editable-table-app-editableTable .ui-select-single:not(.ui-select-customize-input) .ui-select-selector:hover {
+    border-color: var(--ui-input-hover-border-color)!important
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-select-focused .ui-select-selector,
+.pui-tars-ui-editable-table-app-editableTable .ui-select-selector:active,
+.pui-tars-ui-editable-table-app-editableTable .ui-select-selector:focus {
+    border-right-width: 1px!important;
+    outline: 0;
+    box-shadow: none
+}
+
+.pui-tars-ui-editable-table-app-editableTable tr.ui-table-expanded-row {
+    background-color: var(--ui-component-background)
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-table.ui-table-small .ui-table-tbody>tr>td.ui-table-cell {
+    padding: 0
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-table.ui-table-small .ui-table-tbody>tr>td.ui-table-cell .ui-input {
+    border-radius: 0
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-table.ui-table-small .ui-table-tbody>tr>td.ui-table-cell .ui-form-item-control-input,
+.pui-tars-ui-editable-table-app-editableTable .ui-table.ui-table-small .ui-table-tbody>tr>td.ui-table-cell .ui-form-item-control-input-content,
+.pui-tars-ui-editable-table-app-editableTable .ui-table.ui-table-small .ui-table-tbody>tr>td.ui-table-cell .ui-input {
+    height: 100%
+}
+
+.pui-tars-ui-editable-table-app-editableTable .ui-table.ui-table-small .ui-table-tbody>tr>td.ui-table-cell .ui-form-item-control-input-content {
+    line-height: 32px
+}
+
+.pui-tars-ui-editable-table-app-more-action-menu-dropdown .ui-dropdown-arrow {
+    right: 10px
+}
+
+.pui-tars-ui-editable-table-app-more-action-menu {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    background: var(--ui-body-background);
+    border-radius: 4px;
+    box-shadow: var(--ui-box-shadow-base)
+}
+
+.pui-tars-ui-editable-table-app-more-action-menu .header {
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--app-x-darken-1)
+}
+
+.pui-tars-ui-editable-table-app-more-action-menu .content {
+    padding: 8px 16px
+}
+
+.pui-tars-ui-editable-table-app-more-action-menu .content .ui-form-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 0
+}
+
+.pui-tars-ui-editable-table-app-more-action-menu .content .ui-col.ui-form-item-label {
+    margin-right: 16px
+}
+
+.pui-tars-ui-editable-table-app-more-action-menu .content .ui-col.ui-form-item-control {
+    flex-grow: 0
+}
+
+.pui-tars-ui-editable-table-app-more-action-menu .content .ui-checkbox-wrapper {
+    font-size: 13px
+}
+
+.pui-tars-ui-editable-table-app-more-action-menu .content .ui-checkbox-wrapper .ui-checkbox-inner {
+    width: 14px;
+    height: 14px;
+    border-radius: 2px
+}
+
+.pui-tars-ui-editable-table-app-more-action-menu .content .ui-checkbox-wrapper .ui-checkbox-inner:after {
+    left: 18%
+}
+
+.pui-tars-ui-editable-table-bulk-edit-bulkEdit {
+    width: 100%
+}
+
+.pui-tars-ui-editable-table-bulk-edit-bulkEdit .top-bar {
+    margin-bottom: 8px
+}
+
+.pui-tars-ui-editable-table-bulk-edit-bulkEdit .top-bar .tab {
+    margin-right: 16px
+}
+
+.pui-tars-ui-editable-table-bulk-edit-bulkEdit .top-bar .tab .ui-radio-button-wrapper-checked {
+    color: var(--ui-btn-primary-color);
+    background-color: var(--ui-btn-primary-bg)
+}
+
+.pui-tars-ui-editable-table-bulk-edit-bulkEdit .formatTip {
+    color: var(--ui-text-color-secondary);
+    font-size: 14px
+}
+
+.pui-tars-ui-editable-table-bulk-edit-bulkEdit .editor {
+    background-color: var(--ui-input-bg)!important;
+    border: 1px solid var(--ui-border-color-base);
+    border-radius: .375rem
+}
+
+.pui-tars-ui-editable-table-bulk-edit-bulkEdit .editor .ui-input {
+    background-color: var(--ui-input-bg);
+    border-color: transparent
+}
+
+.pui-tars-ui-editable-table-bulk-edit-bulkEdit .editor .ui-input:hover {
+    border-color: var(--ui-primary-color)
+}
+
+.pui-tars-ui-editable-table-bulk-edit-bulkEdit .tips {
+    min-height: 40px;
+    padding-left: 16px;
+    color: var(--ui-text-color-secondary);
+    font-size: 14px
+}
+
+.pui-tars-ui-nullable-input-index-container .ui-checkbox-wrapper {
+    width: 32px;
+    margin-top: 3px;
+    padding: 0 8px
+}
+
+.pui-tars-ui-nullable-input-index-container .ui-input {
+    width: calc(100% - 32px)
+}
+
+.pui-tars-ui-select-index-base-select-container .ui-select>.ui-select-selector {
+    padding-left: 8px
+}
+
+.pui-tars-ui-select-index-base-select-container .ui-badge {
+    padding-left: 3px
+}
+
+.pui-tars-ui-select-index-base-select-option {
+    padding-left: 8px
+}
+
+.pui-tars-ui-select-index-base-select-option .pui-tars-ui-select-index-base-select-option-label {
+    padding-left: 3px
+}
+
+.pui-components-settings-invite-member-searchInput .ui-input {
+    width: 90%
+}
+
+.pui-components-settings-invite-member-addMember .pui-components-settings-invite-member-nav {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center
+}
+
+.pui-components-settings-invite-member-addMember .pui-components-settings-invite-member-nav .ui-radio-button-wrapper {
+    background: var(--app-secondary-4)!important
+}
+
+.pui-components-settings-invite-member-addMember .pui-components-settings-invite-member-nav .ui-radio-button-checked {
+    background: var(--app-secondary-16)!important
+}
+
+.pui-components-settings-invite-member-addMember .pui-components-settings-invite-member-nav .ui-radio-button-wrapper-checked {
+    color: var(--app-text-fg-medium)!important
+}
+
+.pui-components-settings-project-select-index-projectSelect .ui-list-item-meta-title {
+    margin-bottom: 0
+}
+
+.pui-components-settings-project-select-index-projectSelect .pui-components-settings-project-select-index-list {
+    height: 295px;
+    overflow-y: auto
+}
+
+.pui-components-settings-project-select-index-projectSelect .pui-components-settings-project-select-index-label .pui-components-settings-project-select-index-item {
+    line-height: unset;
+    border-bottom: 1px solid var(--app-bg-300)!important
+}
+
+.pui-components-settings-project-select-index-projectSelect .pui-components-settings-project-select-index-label:first-child .pui-components-settings-project-select-index-item {
+    border-top: 1px solid var(--app-bg-300)!important
+}
+
+.pui-tars-ui-multi-select-index-dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 46px;
+    padding: 0 12px;
+    color: var(--app-text-fg-low)
+}
+
+.pui-tars-ui-multi-select-index-dropdown-header strong {
+    color: var(--app-text-fg-medium);
+    font-weight: 400
+}
+
+.pui-tars-ui-multi-select-index-dropdown-context .ui-select-item+.ui-select-item {
+    margin-top: 2px
+}
+
+.pui-tars-ui-tars-transfer-index-tars-transfer {
+    display: flex;
+    align-items: center
+}
+
+.pui-tars-ui-tars-transfer-index-tars-transfer-gap {
+    flex: none;
+    width: 10px
+}
+
+.pui-tars-ui-tars-transfer-index-list {
+    flex: auto;
+    width: 300px;
+    border: 1px solid var(--app-block-border-color);
+    border-radius: 4px
+}
+
+.pui-tars-ui-tars-transfer-index-list-header {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 12px;
+    color: var(--app-text-fg-low);
+    font-size: 12px;
+    border-bottom: 1px solid var(--app-block-border-color)
+}
+
+.pui-tars-ui-tars-transfer-index-list-header strong {
+    color: var(--app-text-fg-medium);
+    font-weight: 400
+}
+
+.pui-tars-ui-tars-transfer-index-list-search-input input {
+    font-size: 12px
+}
+
+.pui-tars-ui-tars-transfer-index-list-body {
+    display: flex;
+    flex-direction: column;
+    height: 240px;
+    margin-bottom: 8px
+}
+
+.pui-tars-ui-tars-transfer-index-list-search {
+    flex: none;
+    padding: 8px 12px
+}
+
+.pui-tars-ui-tars-transfer-index-list-search-icon {
+    color: var(--app-text-fg-disabled)
+}
+
+.pui-tars-ui-tars-transfer-index-list-content {
+    flex: auto;
+    margin: 0;
+    padding: 0;
+    overflow: auto
+}
+
+.pui-tars-ui-tars-transfer-index-list-content-empty {
+    flex: none;
+    width: 100%;
+    margin: auto 0;
+    color: var(--app-text-fg-disabled);
+    text-align: center
+}
+
+.pui-tars-ui-tars-transfer-index-list-content-item {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    padding: 0 12px;
+    cursor: pointer
+}
+
+.pui-tars-ui-tars-transfer-index-list-content-item:hover {
+    background-color: var(--app-secondary-4)
+}
+
+.pui-tars-ui-tars-transfer-index-list-content-item.selected {
+    background-color: var(--app-primary-8)
+}
+
+.pui-tars-ui-tars-transfer-index-list-content-item.disabled,
+.pui-tars-ui-tars-transfer-index-list-content-item.disabled .pui-tars-ui-tars-transfer-index-list-content-item-selected-icon {
+    color: var(--app-text-fg-disabled);
+    cursor: not-allowed
+}
+
+.pui-tars-ui-tars-transfer-index-list-content-item+.pui-tars-ui-tars-transfer-index-list-content-item {
+    margin-top: 2px
+}
+
+.pui-tars-ui-tars-transfer-index-list-content-item-title {
+    flex: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.pui-tars-ui-tars-transfer-index-list-content-item-selected-icon {
+    flex: none;
+    color: var(--app-primary-base);
+    opacity: .9
+}
+
+.pui-tars-ui-tars-transfer-index-list-content-item-delete-icon {
+    color: var(--app-text-fg-low)
+}
+
+.pui-tars-ui-tars-transfer-index-list-content-item-delete-icon:hover {
+    color: var(--app-secondary)
+}
+
+.ui-form-item-has-error .pui-tars-ui-tars-transfer-index-list {
+    border-color: var(--ui-error-color)
+}

@@ -1,0 +1,160 @@
+<?php
+  require __DIR__.'/head.html';
+  require __DIR__.'/header.html';
+  $File_Ming = 'goods';
+  require __DIR__.'/nav.html';
+  ?>
+<main class="app-content">
+    <div class="app-title">
+        <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item">商品列表</li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <style>
+            #goods img {
+                width: 100%;
+                height: 100%;
+                /* border-radius: 15px 0px 0px 15px; */
+                border-top-right-radius: 15px;
+                border-top-left-radius: 15px;
+                object-fit: cover;
+
+            }
+
+            #goods .layui-col-md2 {
+                padding: 8px;
+
+            }
+
+            .price {
+                color: #FF0036;
+            }
+
+            .price p {
+                float: left;
+                color: #6c757d;
+            }
+
+            .cmdlist-text a {
+                text-decoration: none;
+            }
+
+            a .info:hover {
+                color: #17a2b8
+            }
+
+            .price .flow {
+                float: right;
+                color: #9e8848;
+            }
+
+            .cmdlist-text {
+                background-color: #fff;
+                padding: 5px 5px;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+            }
+
+            .tile .tile-title {
+                margin-bottom: 15px;
+                font-size: 0.5rem;
+                color: red;
+            }
+        </style>
+
+
+        <div class="col-md-12">
+            <div class="tile">
+                <h4 class="tile-title">购买后可以单独统计调用详情</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>接口名称</th>
+                                <th>说明</th>
+                                <th>价格</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if(!empty($data)):
+                            foreach($data as $k=>$v):?>
+                            <tr>
+                                <td><?php echo $k+1;?></td>
+                                <td><?php echo $v['l_title'];?></td>
+                                <td><?php echo $v['l_desc'];?></td>
+                                <td style="color: crimson;">￥<?php echo $v['p_month'];?></td>
+                                <td>
+                                    <a title="<?php echo $v['l_id'];?>" href="javascript:"
+                                        onclick="purchase(this)">购买</a>
+                                    <a href="/doc/<?php echo $v['l_alias'];?>.html" target="_blank">查看</a>
+                                </td>
+                            </tr>
+                            <?php endforeach;
+                            endif;?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <?php  require __DIR__.'/fooer.html'; ?>
+    <script>
+        layui.use('carousel', function () {
+            var carousel = layui.carousel;
+            //建造实例
+            carousel.render({
+                elem: '#test-carousel-normal',
+                width: '100%' //设置容器宽度
+                ,
+                height: '238px' //设置容器宽度
+                ,
+                arrow: 'always' //始终显示箭头
+                //,anim: 'updown' //切换动画方式
+            });
+        });
+
+        var screen_width = 0;
+        var screen_height = 0;
+        //监听屏幕宽度
+        window.addEventListener('load', function () {
+            //  console.log("aaa", window.innerWidth);
+            screen_width = getScreenWidth(window.innerWidth);
+            window.addEventListener('resize', function () {
+                //  console.log(window.innerWidth);
+                screen_width = getScreenWidth(window.innerWidth);
+            })
+        });
+
+        //计算窗口宽度
+        function getScreenWidth(width) {
+            var res = 0;
+            if (width > 400) {
+                res = "30%";
+                screen_height = "320px";
+            } else {
+                res = "92%";
+                screen_height = "320px"
+            }
+            return res;
+        }
+
+        //购买窗口
+        function purchase(_this) {
+            // console.log(_this.title);
+            layer.open({
+                type: 2,
+                title: '购买接口',
+                shadeClose: false,
+                shade: true,
+                maxmin: false, //开启最大化最小化按钮
+                area: [screen_width, screen_height],
+                content: '/user/order/' + _this.title
+            });
+        }
+    </script>

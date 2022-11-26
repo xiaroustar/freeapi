@@ -1,0 +1,70 @@
+<?php
+  require __DIR__.'/head.html';
+  require __DIR__.'/header.html';
+  $File_Ming = 'buyapi';
+  require __DIR__.'/nav.html';
+  ?>
+<!-- 主体 -->
+<main class="app-content">
+    <div class="app-title">
+        <ul class="app-breadcrumb breadcrumb side">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item">购买记录</li>
+        </ul>
+    </div>
+    <style>
+
+    </style>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <div class="tile-body">
+                    <table class="table table-hover table-bordered" id="sampleTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>接口名称</th>
+                                <th>订单号</th>
+                                <th>价格</th>
+                                <th>消费类型</th>
+                                <th>购买时间</th>
+                                <th>到期时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if(!empty($data)):
+                            foreach($data as $k=>$v):?>
+                            <tr>
+                                <td><?php echo $k+1;?></td>
+                                <td><?php echo $v['o_title'];?></td>
+                                <td><?php echo $v['o_pay_no'];?></td>
+                                <td><?php echo $v['o_price'];?>元</td>
+                                <td><?php if($v['o_type']==1){echo '新购';}else{ echo "续费";}?></td>
+                                <td><?php echo $v['o_time'];?></td>
+                                <td><?php echo date("Y-m-d H:i:s",$v['o_expire']);?></td>
+                            </tr>
+                            <?php endforeach;
+                            endif;?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php  require __DIR__.'/fooer.html'; ?>
+    <script type="text/javascript">
+        //删除
+        function delRow(_this) {
+            var td = _this.parentNode;
+            var tr = td.parentNode;
+            //var ka = tr.childNodes[3];
+            var tbody = tr.parentNode;
+            if (confirm('是否要删除！')) {
+                tbody.removeChild(tr);
+                document.location = "Jump.php?type=splist&id=" + _this.title;
+            }
+        }
+    </script>
+    </body>
+
+    </html>

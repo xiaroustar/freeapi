@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <title>登录中心</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="keywords" content="Working Signin form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
+    <!-- //Meta tag Keywords -->
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&amp;display=swap" rel="stylesheet">
+    <!--/Style-CSS -->
+    <link rel="stylesheet" href="https://tucdn.wpon.cn/2022/11/26/79d1f1dab837c.css" type="text/css" media="all">
+    <!--//Style-CSS -->
+    <link rel="stylesheet" type="text/css" href="/assets/awesome/css/main.css">
+    <link type="text/css" href="/assets/awesome/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+
+<body style=" background-image:url(https://v.api.aa1.cn/api/api-fj-2/index.php?aa1=yuantu);">
+
+    <!-- form section start -->
+    <section class="w3l-workinghny-form">
+        <!-- /form -->
+        <div class="workinghny-form-grid">
+            <div class="wrapper">
+                <div class="logo">
+                    <h1><a class="brand-logo" href="#"> Find User</a></h1>
+                    <!-- if logo is image enable this   
+                        <a class="brand-logo" href="#index.html">
+                            <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                        </a> -->
+                </div>
+                <div class="workinghny-block-grid">
+                    <div class="workinghny-left-img align-end">
+                        <img src="https://tucdn.wpon.cn/2022/11/26/57694710fc155.png" class="img-responsive" alt="img">
+                    </div>
+                    <div class="form-right-inf">
+
+                        <div class="login-form-content">
+                            <h2>找回密码?</h2>
+                            <form class="login-form" id="user-forget">
+
+                                <div class="form-group one-frm">
+                                  <label class="control-label">账号</label>
+                                  <input class="form-control" type="text" name="username" value="" placeholder="请输入找回账号" autofocus>
+                                </div>
+                                <div class="form-group one-frm">
+                                  <label class="control-label">邮箱</label>
+                                  <input class="form-control" type="email" name="email" placeholder="请输入绑定的邮箱号码">
+                                </div>
+                                <div class="form-group one-frm">
+                                  <label class="control-label">验证码</label>
+                                  <div style="position: relative;">
+                                    <input class="form-control" id="valcode" style="width: 150px;" type="text" name="code"
+                                      placeholder="请输入验证码">
+                                    <img id="code" style="cursor:pointer;position: absolute;top: 3px;right: 0px;" src="/code/forget"
+                                      onclick="javascript:this.src='/code/forget?'+Math.random()" title="看不清？点击更换" align="absmiddle" />
+                                  </div>
+                      
+                                </div>
+                                <div class="form-group one-frm">
+                                  <div class="utility">
+                                    <p class="semibold-text mb-2"><a href="/user/login.html">返回登录</a></p>
+                                  </div>
+                                </div>
+                      
+                                <div class="form-group btn-container">
+                                  <button type="button" class="btn btn-primary btn-block">
+                                    <i class="fa fa-sign-in fa-lg fa-fw"></i>立即找回</button>
+                                </div>
+                                <span style="color:#e60c0c"></span>
+                                <div style="margin-top: 10px;text-align: left;">
+                                  <p class="semibold-text mb-2"><a href="../">返回首页</a></p>
+                                </div>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //form -->
+        <!-- copyright-->
+        <div class="copyright text-center">
+            <div class="wrapper">
+                <p class="copy-footer-29">© 2023 免费API. All rights reserved | Design by <a href="https://www.aa1.cn">夏柔</a></p>
+            </div>
+        </div>
+    <!-- Essential javascripts for application to work-->
+    <script src="/assets/other/js/jquery.min.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="/assets/awesome/js/plugins/pace.min.js"></script>
+    <script src="/assets/layui/layui.all.js"></script>
+    <script type="text/javascript">
+      // Login Page Flipbox control
+      $('.login-content [data-toggle="flip"]').click(function () {
+        $('.login-box').toggleClass('flipped');
+        return false;
+      });
+
+      $('#user-forget button').click(function () {
+        var index = layer.load(0, { shade: true });
+        /*实例化表单数据*/
+        var fd = new FormData(document.getElementById('user-forget'));
+        $.ajax({
+          url: '/user/forget',
+          type: "POST",
+          timeout: "5000",
+          dataType: "json",
+          contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+          data: fd,
+          contentType: false,
+          processData: false,
+          success: function (data) {
+            layer.close(index);
+            if (data.code == "200") {
+              layer.msg(data.msg, { time: 1000 });
+              //询问框
+              layer.confirm(data.msg, {
+                btn: ['确定'] //按钮
+              }, function () {
+                // layer.msg('的确很重要', { icon: 1 });
+                window.location.href = "/user/login.html";
+              });
+            } else {
+              layer.msg(data.msg);
+              document.getElementById('code').src = '/code/forget?' + Math.random();
+              document.getElementById('valcode').value = "";
+            }
+          },
+          error: function (XMLResponse) {
+            layer.close(index);
+            layer.msg(XMLResponse.error);
+          }
+        });
+      });
+    </script>
+
+        <!-- //copyright-->
+    </section>
+    <!-- //form section start -->
+
+
+
+</body>
+
+</html>

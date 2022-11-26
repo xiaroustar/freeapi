@@ -1,0 +1,89 @@
+<?php
+  require __DIR__.'/head.html';
+  require __DIR__.'/header.html';
+  $File_Ming = 'adduser';
+  require __DIR__.'/nav.html';
+  ?>
+<main class="app-content">
+    <div class="app-title">
+        <ul class="app-breadcrumb breadcrumb">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item"><a href="">添加会员</a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <form id="admin-adduser">
+                <div class="tile">
+                    <div class="tile-body">
+                        <div class="form-group">
+                            <label class="control-label">登录账号</label>
+                            <input class="form-control" type="text" name="username" value="" placeholder="123456">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">登录密码</label>
+                            <input class="form-control" type="text" name="password" value="" placeholder="123456">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">绑定邮箱</label>
+                            <input class="form-control" type="email" name="email" value="" placeholder="123456@qq.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">初始金额</label>
+                            <input class="form-control" type="text" name="balance" value="" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="tile-footer">
+                        <button class="btn btn-primary" type="button"><i
+                                class="fa fa-fw fa-lg fa-check-circle"></i>添加</button>
+                        <span style="color:#e60c0c"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <?php  require __DIR__.'/fooer.html'; ?>
+
+    <script>
+        layui.use('carousel', function () {
+            var carousel = layui.carousel;
+            //建造实例
+            carousel.render({
+                elem: '#test-carousel-normal',
+                width: '100%' //设置容器宽度
+                ,
+                height: '238px' //设置容器宽度
+                ,
+                arrow: 'always' //始终显示箭头
+                //,anim: 'updown' //切换动画方式
+            });
+        });
+
+        $('#admin-adduser button').click(function () {
+            fd = new FormData(document.getElementById('admin-adduser'));
+            $.ajax({
+                url: '/admin/adduser',
+                type: "POST",
+                timeout: "5000",
+                dataType: "json",
+                contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+                data: fd,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.code == "200") {
+                        layer.msg(data.msg, { time: 1500 }, function () {
+                            window.location.href = "/<?php echo ADMIN_PATH;?>/userinfo.html";
+                        });
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function (XMLResponse) {
+                    layer.msg(XMLResponse.error);
+                }
+            });
+        });
+    </script>

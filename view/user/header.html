@@ -1,0 +1,16 @@
+<!-- Navbar-->
+<header class="app-header"> <a class="app-header__logo" href="/user">ZeroAet</a>
+    <!-- Sidebar toggle button-->
+    <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+    <!-- Navbar Right Menu-->
+    <ul class="app-nav">
+        <!-- User Menu-->
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
+                    class="fa fa-user fa-lg"></i> <span><?php echo $_SESSION['userinfo']['u_name'];?></span></a>
+            <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                <li><a class="dropdown-item" href="/user/passwd.html"><i class="fa fa-user fa-lg"></i> 改密</a></li>
+                <li><a class="dropdown-item" href="/user/logout"><i class="fa fa-sign-out fa-lg"></i> 退出</a></li>
+            </ul>
+        </li>
+    </ul>
+</header>

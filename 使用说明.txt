@@ -1,0 +1,16 @@
+--------------- 搭建教程 ---------------
+1.数据库信息配置在路径【config/database.php】文件中
+    
+    -- 默认数据库账号密码：apiv_aa1_cn
+
+2.导入根目录下的【data.sql】数据库文件
+
+3.设置网站运行目录为根目录【public】目录
+
+
+--------------- 网站信息 ---------------
+后台地址 /admin/login.html
+
+账户 admin 密码 123456
+
+ps:伪静态在public目录下，nginx和apache分别对应文件 nginx.htaccess和.htaccess
