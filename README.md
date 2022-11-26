@@ -30,6 +30,7 @@
 2022/11/27
 1.  新增图片懒加载功能，加速前端加载
 2.  修复无法添加接口问题 路径：/app/Http/Model/admin.php
+3.  修复无法修改接口问题，路径：/app/Http/Model/admin.php /app/Http/Controller/Admin/HandleController.php /view/admin/editapi.html
 
 2022/11/26
 1.  修改首页、文章样式
