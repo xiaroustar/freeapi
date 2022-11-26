@@ -4,6 +4,8 @@
 基于ZeroArt二开美化
 页面方式仿的ApiFox，严禁商用，仅供学习测试交流
 
+🔥 内置100+免费接口（远程），部署即用，内置的远程接口可持续提供调用服务！
+
 #### 首页
 ![image.png](https://cdnjson.com/images/2022/11/26/image.png)#### 文档页
 ![截屏2022-11-26 20.22.46.png](https://tucdn.wpon.cn/2022/11/26/1ebb36a1ba015.png)
