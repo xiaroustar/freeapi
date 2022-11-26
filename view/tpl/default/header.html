@@ -12,8 +12,25 @@
 		<meta name="description" content="<?php echo $web['description'];?>">
 		<meta name="keywords" content="<?php echo $web['keywords'];?>">
 		<meta property="og:type" content="website">
-		<meta property="og:image" content="img/apifox-logo-256.png">
-		<script>
+        <script>
+                var imgs = document.getElementsByTagName('img')
+                scrollFn()
+                // 监听滚动事件
+                window.onscroll = scrollFn
+                function scrollFn() {
+                    var clietH = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+                    Array.from(imgs).forEach((item) =>{
+                        let ele = item.getBoundingClientRect() 
+                        console.log(clietH,ele.top)
+                        // 可以设置为ele.top+200 查看懒加载效果
+                        if (ele.top > 0 && ele.top < clietH) {
+                            //从data-url中取出真实的图片地址赋值给scr
+                            item.setAttribute('src', item.getAttribute('data-url')) 
+                        }
+                    })
+                }
+        </script>	
+        <script>
 			function handleLoadingScriptError(event) {
             if (!(event instanceof ErrorEvent)) {
                 if (
