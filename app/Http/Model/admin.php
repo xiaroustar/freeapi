@@ -19,7 +19,7 @@ define('ADMIN_APIDOC', "SELECT a_l_id AS l_id,a_l_title AS l_title,a_l_desc AS l
 define('ADMIN_APIINFO', "SELECT a_l_id AS l_id,a_l_title AS l_title,a_l_desc AS l_desc, a_l_tuimg AS l_tuimg,a_l_alias AS l_alias,a_l_address AS l_address,a_l_format AS l_format,a_l_mode AS l_mode,a_l_ask AS l_ask,a_l_demo AS l_demo,a_l_example AS l_example,a_l_data AS l_data ,a_l_show AS l_show ,a_l_found_time AS l_found_time,a_l_pay AS l_pay FROM api_info WHERE a_l_id = ?;"); //LIMIT 0, 10000;
 
 //修改接口 
-define('ADMIN_EDITAPIINFO', "UPDATE api_info SET a_l_title= ?,a_l_desc=? ,a_l_tuimg=?,a_l_alias=? ,a_l_address=? ,a_l_format=?, a_l_mode=?,a_l_ask=? ,a_l_demo=? ,a_l_example=? ,a_l_data=? ,a_l_show=?,a_l_pay=? WHERE a_l_id= ?;");
+define('ADMIN_EDITAPIINFO', "UPDATE api_info SET a_l_title= ?,a_l_desc=? ,a_l_tuimg=? ,a_l_alias=? ,a_l_address=? ,a_l_format=?, a_l_mode=?,a_l_ask=? ,a_l_demo=? ,a_l_example=? ,a_l_data=? ,a_l_show=?,a_l_pay=? WHERE a_l_id= ?;");
 
 //数据库所有表 SHOW TABLES
 define('ADMIN_TABLESALL', "SHOW TABLES");
