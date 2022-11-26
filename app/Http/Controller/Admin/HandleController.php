@@ -305,11 +305,11 @@ class HandleController extends Controllers
             $val['show'] = "0";
         }
         //关键数据
-        $val_name = ['title', 'address', 'format', 'mode', 'ask', 'alias', 'id'];
+        $val_name = ['title', 'address', 'format', 'mode', 'ask', 'tuimg', 'alias', 'id'];
         //判断关键数据是否存在
         if (is_empty($val_name, $val)) {
             //修改数据
-            $info = [$val['title'], $val['desc'], $val['alias'], $val['address'], $val['format'], $val['mode'], $val['ask'], $val['demo'], $val['example'], $val['datatype'], $val['show'], $val['pay'], $val['id']];
+            $info = [$val['title'], $val['desc'], $val['alias'], $val['tuimg'], $val['address'], $val['format'], $val['mode'], $val['ask'], $val['demo'], $val['example'], $val['datatype'], $val['show'], $val['pay'], $val['id']];
             $res = self::$db->exec(ADMIN_EDITAPIINFO, $info); //修改接口
             //判断修改是否成功
             if ($res > 0) {
