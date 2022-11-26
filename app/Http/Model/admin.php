@@ -4,7 +4,7 @@
 define('ADMIN_LOGIN', "SELECT a_a_id AS a_id,a_a_name AS a_name,a_a_passwd AS a_passwd,a_a_time AS a_time  FROM api_admin WHERE a_a_name= ? and a_a_passwd = ?");
 
 //接口添加
-define('ADMIN_ADDAPI', "INSERT INTO api_info (a_l_title,a_l_desc,a_l_alias,a_l_address,a_l_format,a_l_mode,a_l_ask,a_l_demo,a_l_example,a_l_data,a_l_show,a_l_pay) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);");
+define('ADMIN_ADDAPI', "INSERT INTO api_info (a_l_title,a_l_desc,a_l_tuimg,a_l_alias,a_l_address,a_l_format,a_l_mode,a_l_ask,a_l_demo,a_l_example,a_l_data,a_l_show,a_l_pay) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);");
 
 //接口列表
 define('ADMIN_ADDLIST', "SELECT a_l_id AS l_id,a_l_title AS l_title,a_l_desc AS l_desc, a_l_tuimg AS l_tuimg, a_l_alias AS l_alias,a_l_address AS l_address,a_l_format AS l_format,a_l_mode AS l_mode,a_l_ask AS l_ask,a_l_demo AS l_demo,a_l_example AS l_example,a_l_data AS l_data ,a_l_show AS l_show ,a_l_found_time AS l_found_time,a_l_count AS l_count,a_l_pay AS l_pay FROM api_info;"); //LIMIT 0, 10000;
