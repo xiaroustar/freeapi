@@ -55,6 +55,8 @@
 1.  Fork 本仓库
 2.  ZeroArt（原作者）
 3.  夏柔
+4.  浑欲不胜簪
+5.  泽客（帮忙下载模板）
 
 Better because of focus
 
