@@ -1,89 +1,175 @@
-<?php
-  require __DIR__.'/head.html';
-  require __DIR__.'/header.html';
-  $File_Ming = 'adduser';
-  require __DIR__.'/nav.html';
-  ?>
-<main class="app-content">
-    <div class="app-title">
-        <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="">添加会员</a></li>
-        </ul>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <form id="admin-adduser">
-                <div class="tile">
-                    <div class="tile-body">
-                        <div class="form-group">
-                            <label class="control-label">登录账号</label>
-                            <input class="form-control" type="text" name="username" value="" placeholder="123456">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">登录密码</label>
-                            <input class="form-control" type="text" name="password" value="" placeholder="123456">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">绑定邮箱</label>
-                            <input class="form-control" type="email" name="email" value="" placeholder="123456@qq.com">
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label">初始金额</label>
-                            <input class="form-control" type="text" name="balance" value="" placeholder="0">
-                        </div>
-                    </div>
-                    <div class="tile-footer">
-                        <button class="btn btn-primary" type="button"><i
-                                class="fa fa-fw fa-lg fa-check-circle"></i>添加</button>
-                        <span style="color:#e60c0c"></span>
-                    </div>
-                </div>
-            </form>
-        </div>
+<?php require __DIR__. '/head.html'; require __DIR__. '/nav.html'; $File_Ming='apiinfo'
+; ?>
+	<div class="xp-rightbar">
+		<div class="xp-topbar">
+			<div class="row">
+				<!-- Start XP Col -->
+				<div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+					<div class="xp-menubar">
+						<a class="xp-menu-hamburger" href="javascript:void();">
+							<i class="icon-menu font-20 text-white">
+							</i>
+						</a>
+					</div>
+				</div>
+				<!-- End XP Col -->
+				<!-- Start XP Col -->
+				<div class="col-10 col-md-11 col-lg-11 order-1 order-md-2">
+					<div class="xp-profilebar text-right">
+					</div>
+				</div>
+				<!-- End XP Col -->
+			</div>
+		</div>
+		<div class="xp-breadcrumbbar">
+			<div class="row">
+				<div class="col-md-6 col-lg-6">
+					<h4 class="xp-page-title">
+						添加会员
+					</h4>
+				</div>
+				<div class="col-md-6 col-lg-6">
+					<div class="xp-breadcrumb">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="index.html">
+									<i class="icon-home">
+									</i>
+								</a>
+							</li>
+							<li class="breadcrumb-item">
+								<a href="#">
+									会员管理
+								</a>
+							</li>
+							<li class="breadcrumb-item active" aria-current="page">
+								添加会员
+							</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="xp-contentbar">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="card m-b-30">
+						<div class="card-header bg-white">
+							<h5 class="card-title text-black">
+								Add User
+							</h5>
+							<h6 class="card-subtitle">
+								添加用户信息.
+							</h6>
+						</div>
+						<div class="card-body">
+							<form class="xp-form-validate" action="#" method="post" novalidate="novalidate"
+							id="admin-adduser">
+								<div class="form-group row">
+									<label class="col-lg-3 col-form-label" for="val-username">
+										添加账号
+										<span class="text-danger">
+											*
+										</span>
+									</label>
+									<div class="col-lg-6">
+										<input class="form-control" type="text" name="username" value="" placeholder="123456">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-lg-3 col-form-label" for="val-email">
+										添加密码
+										<span class="text-danger">
+											*
+										</span>
+									</label>
+									<div class="col-lg-6">
+										<input class="form-control" type="text" name="password" value="" placeholder="123456">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-lg-3 col-form-label" for="val-password">
+										绑定邮箱
+										<span class="text-danger">
+											*
+										</span>
+									</label>
+									<div class="col-lg-6">
+										<input class="form-control" type="email" name="email" value="" placeholder="123456@qq.com">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-lg-3 col-form-label" for="val-confirm-password">
+										初始金额
+										<span class="text-danger">
+											*
+										</span>
+									</label>
+									<div class="col-lg-6">
+										<label class="control-label">
+											初始金额
+										</label>
+										<input class="form-control" type="text" name="balance" value="" placeholder="0">
+									</div>
+								</div>
+								<div class="tile-footer">
+									<button class="btn btn-primary" type="button">
+										<i class="fa fa-fw fa-lg fa-check-circle">
+										</i>
+										添加
+									</button>
+									<span style="color:#e60c0c">
+									</span>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- End XP Col -->
+			</div>
+			<!-- End XP Row -->
+		</div>
+		<?php require __DIR__. '/footer.html';?>
+			<script>
+				layui.use('carousel', function() {
+    var carousel = layui.carousel;
+    //建造实例
+    carousel.render({
+        elem: '#test-carousel-normal',
+        width: '100%' //设置容器宽度
+            ,
+        height: '238px' //设置容器宽度
+            ,
+        arrow: 'always' //始终显示箭头
+            //,anim: 'updown' //切换动画方式
+    });
+});
 
-    </div>
-
-    <?php  require __DIR__.'/fooer.html'; ?>
-
-    <script>
-        layui.use('carousel', function () {
-            var carousel = layui.carousel;
-            //建造实例
-            carousel.render({
-                elem: '#test-carousel-normal',
-                width: '100%' //设置容器宽度
-                ,
-                height: '238px' //设置容器宽度
-                ,
-                arrow: 'always' //始终显示箭头
-                //,anim: 'updown' //切换动画方式
-            });
-        });
-
-        $('#admin-adduser button').click(function () {
-            fd = new FormData(document.getElementById('admin-adduser'));
-            $.ajax({
-                url: '/admin/adduser',
-                type: "POST",
-                timeout: "5000",
-                dataType: "json",
-                contentType: 'application/x-www-form-urlencoded;charset=utf-8',
-                data: fd,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    if (data.code == "200") {
-                        layer.msg(data.msg, { time: 1500 }, function () {
-                            window.location.href = "/<?php echo ADMIN_PATH;?>/userinfo.html";
-                        });
-                    } else {
-                        layer.msg(data.msg);
-                    }
-                },
-                error: function (XMLResponse) {
-                    layer.msg(XMLResponse.error);
-                }
-            });
-        });
-    </script>
+$('#admin-adduser button').click(function() {
+    fd = new FormData(document.getElementById('admin-adduser'));
+    $.ajax({
+        url: '/admin/adduser',
+        type: "POST",
+        timeout: "5000",
+        dataType: "json",
+        contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+        data: fd,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+            if (data.code == "200") {
+                layer.msg(data.msg, {
+                    time: 1500
+                }, function() {
+                    window.location.href = "/admin/userinfo.html";
+                });
+            } else {
+                layer.msg(data.msg);
+            }
+        },
+        error: function(XMLResponse) {
+            layer.msg(XMLResponse.error);
+        }
+    });
+});
+			</script>

@@ -1,156 +1,170 @@
 <?php
   require __DIR__.'/head.html';
-  require __DIR__.'/header.html';
-  $File_Ming = 'addapi';
   require __DIR__.'/nav.html';
+  $File_Ming = 'addapi';
   ?>
-<style>
-    #admin-addapi .close {
-        background-color: transparent;
-        border: 0;
-        -webkit-appearance: none;
-    }
-</style>
-<!-- 主体 -->
-<main class="app-content">
-    <div class="app-title">
-        <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item">添加接口</li>
-        </ul>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <form id="admin-addapi">
-                <div class="tile">
-                    <div class="bs-component">
-                        <div class="alert alert-dismissible alert-success">
-                            <input class="close" type="button" value="x" data-dismiss="alert">
-                            1.别名用做访问识别，请认真填写;<br />
-                            2.接口地址格式：域名/api/别名?参数<br />
-                            3.返回格式于请求方式仅共参考使用,不是作为接口访问类型<br />
-                            4.数据接口仅调用当前程序数据库中的数据，可自行加表，上传文件的接口不用开启<br />
-                            5.接口收费开启后才能设置价格，否则不起作用<br />
-                            6.接口上架如果不选仅添加，但不进行推广，不会显示在前台和用户的商品中<br />
-                            7.非数据类型接口需要上传接口文件到根目录下的【view/api/新建文件夹名称为别名】<br />
-                            8.上传的接口文件如果附带其他文件，引用时请在地址前边加上 【__DIR__】函数，例：__DIR__."/a.png";
+<div class="xp-rightbar">
+<div class="xp-topbar">
+
+                <div class="row">
+
+                    <!-- Start XP Col -->
+                    <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                        <div class="xp-menubar">
+                            <a class="xp-menu-hamburger" href="javascript:void();">
+                                <i class="icon-menu font-20 text-white"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-6">
+                    <!-- End XP Col -->
 
-                            <div class="form-group">
-                                <label for="title">接口标题</label>
-                                <input class="form-control" id="title" type="text" aria-describedby="title" name="title"
-                                    value="" placeholder="短网址生成">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="alias">别名（用于区分访问）</label>
-                                <input class="form-control" id="alias" type="text" aria-describedby="alias" name="alias"
-                                    value="" placeholder="dwz">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="desc">简介说明</label>
-                                <input class="form-control" id="desc" type="text" aria-describedby="desc" name="desc"
-                                    value="" placeholder="将长网址进行缩短，支持百度、新浪、腾讯短网址等等。">
-                            </div>
-                            <div class="form-group">
-                                <label for="address">接口地址</label>
-                                <input class="form-control" id="address" type="text" aria-describedby="address"
-                                    name="address" value="" placeholder="https://api.aa1.cn/api/dwz?url=">
-                            </div>
-                            <div class="form-group">
-                                <label for="format">返回格式</label>
-                                <input class="form-control" id="format" type="text" aria-describedby="format"
-                                    name="format" value="" placeholder="JSON">
-                            </div>
-                            <div class="form-group">
-                                <label for="mode">请求方式</label>
-                                <input class="form-control" id="mode" type="text" aria-describedby="mode" name="mode"
-                                    value="" placeholder="GET">
-                            </div>
-                            <div class="form-group">
-                                <label for="ask">请求示例</label>
-                                <input class="form-control" id="ask" type="text" aria-describedby="ask" name="ask"
-                                    value="" placeholder="https://apiv.aa1.cn/api/dwz?url=">
-                            </div>
-
-
+                    <!-- Start XP Col -->
+                    <div class="col-10 col-md-11 col-lg-11 order-1 order-md-2">
+                        <div class="xp-profilebar text-right">
+                           
                         </div>
-
-                        <div class="col-lg-6">
-<div class="form-group">
-                                <label for="tuimg">接口图片</label>
-                                <input class="form-control" id="tuimg" type="text" aria-describedby="tuimg" name="tuimg"
-                                    value="" placeholder="https://cdn.wpon.cn/logo.img">
-                            </div>
-                            <div class="form-group">
-                                <label for="example">返回示例</label>
-                                <textarea class="form-control" id="example" name="example" rows="5" placeholder='{
-    "code": 1, 
-    "msg": "生成成功", 
-    "url": "http://blog.oioweb.cn", 
-    "data": {
-        "tcn": "http://t.cn/RuewNC3", 
-        "url": "https://url.cn/59WAm1B"
-    }
-}'></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="demo">代码示例</label>
-                                <p>暂无示例,站长交流群：938564996 进行交流</p>
-                                <textarea class="form-control" id="demo" name="demo" rows="4"
-                                    placeholder='暂无示例,站长交流群：938564996 进行交流' value='暂无示例,站长交流群：938564996 进行交流'></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="details">数据接口（判断是否调用自定义数据库数据）</label>
-                                <div class="toggle-flip">
-                                    <label>
-                                        <input type="checkbox" value="1" name="datatype"><span class="flip-indecator"
-                                            data-toggle-on="ON" data-toggle-off="OFF"></span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="details">接口收费<span class="help-block" style="color:red">
-                                        （接口收费请在接口列表编辑中设置）</span></label>
-                                <div class="toggle-flip">
-                                    <label>
-                                        <input type="checkbox" value="1" name="pay"><span class="flip-indecator"
-                                            data-toggle-on="ON" data-toggle-off="OFF"></span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="details">接口上架</label>
-                                <div class="toggle-flip">
-                                    <label>
-                                        <input type="checkbox" value="1" name="show"><span class="flip-indecator"
-                                            data-toggle-on="ON" data-toggle-off="OFF"></span>
-                                    </label>
-                                </div>
-
-                            </div>
-
-                        </div>
-
                     </div>
-                    <div class="tile-footer">
-                        <input type="hidden" value="addapi" name="target" style="display: none">
-                        <button type="button" class="btn btn-primary">添加</button>
-                    </div>
+                    <!-- End XP Col -->
+
                 </div>
-            </form>
+
+            </div>
+            <div class="xp-breadcrumbbar">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <h4 class="xp-page-title">添加接口</h4>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="xp-breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#">接口管理</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">添加接口</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>          
+            </div>
+            
+
+                
+            <div class="xp-contentbar">
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <div class="card m-b-30">
+
+                            <div class="card-header bg-white">
+                                <h5 class="card-title text-black">Add Api</h5>
+                                <h6 class="card-subtitle">添加好用的接口给大家用吧！</h6>
+                            </div>
+
+                            <div class="card-body">
+
+                                <form class="xp-form-validate" action="#" id="admin-addapi">
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label" for="val-username">Api Title <span class="text-danger">*</span></label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control" id="title" type="text" aria-describedby="title" name="title"
+                                    value="" placeholder="接口标题">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label" for="val-email">Api Title <span class="text-danger">*</span></label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control" id="alias" type="text" aria-describedby="alias" name="alias"
+                                    value="" placeholder="接口别名">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label" for="val-password">Api Introduce <span class="text-danger">*</span></label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control" id="desc" type="text" aria-describedby="desc" name="desc"
+                                    value="" placeholder="接口介绍">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label" for="val-confirm-password">Api Address <span class="text-danger">*</span></label>
+                                        <div class="col-lg-6">
+                                             <input class="form-control" id="address" type="text" aria-describedby="address"
+                                    name="address" value="" placeholder="https://v.api.aa1.cn/api/api.php">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label" for="val-suggestions">返回格式 <span class="text-danger">*</span></label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control" id="format" type="text" aria-describedby="format"
+                                    name="format" value="JSON" placeholder="JSON">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label" for="val-currency">请求方式 <span class="text-danger">*</span></label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control" id="mode" type="text" aria-describedby="mode" name="mode"
+                                    value="GET" placeholder="GET">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label" for="val-website">请求示例 <span class="text-danger">*</span></label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control" id="ask" type="text" aria-describedby="ask" name="ask"
+                                    value="" placeholder="https://v.api.aa1.cn/api/yiyan">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label" for="val-phoneus">接口图片 <span class="text-danger">*</span></label>
+                                        <div class="col-lg-6">
+                                           <input class="form-control" id="tuimg" type="text" aria-describedby="tuimg" name="tuimg"
+                                    value="" placeholder="https://cdn.wpon.cn/logo.img">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label" for="val-range">返回示例 <span class="text-danger">*</span></label>
+                                        <div class="col-lg-6">
+                                             <textarea class="form-control" id="example" name="example" rows="5" placeholder='{"code":1}'></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                     <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label" for="val-range">代码示例 <span class="text-danger">*</span></label>
+                                        <div class="col-lg-6">
+                                             <textarea class="form-control" id="demo" name="demo" rows="4"
+                                    value='暂无示例,站长交流群：938564996 进行交流' placeholder='暂无示例,站长交流群：938564996 进行交流'></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label"><a data-toggle="modal" data-target="#modal-terms" href="#">接口上架</a> <span class="text-danger">*</span></label>
+                                        <div class="col-lg-8">
+                                            <label class="css-control css-control-primary css-checkbox" for="val-terms">
+                                                 <input type="checkbox" value="1" name="show"><span class="flip-indecator"
+                                            data-toggle-on="ON" data-toggle-off="OFF"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label"></label>
+                                        <div class="col-lg-8">
+                                                <input type="hidden" value="addapi" name="target" style="display: none">
+                                            <button type="button" class="btn btn-primary">添加</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End XP Col -->
+
+                </div>   
+                <!-- End XP Row -->
+
+            </div>
+            <!-- End XP Contentbar -->
         </div>
-    </div>
-    <?php  require __DIR__.'/fooer.html'; ?>
-    <script>
+
+<?php require __DIR__.'/footer.html';?>
+
+<script>
         $('#admin-addapi button').click(function () {
             fd = new FormData(document.getElementById('admin-addapi'));
             $.ajax({
@@ -183,8 +197,8 @@
         //监听别名
         $('#alias').bind('input propertychange', function () {
             if ($(this).val()) {
-                $('#address').val(apiUrl + $(this).val());
-                $('#ask').val(apiUrl + $(this).val());
+                $('#address').val(apiUrl + $(this).val() + "/");
+                $('#ask').val(apiUrl + $(this).val() + "/");
             } else {
                 $('#address').val('');
                 $('#ask').val('');
@@ -192,6 +206,3 @@
         })
 
     </script>
-    </body>
-
-    </html>

@@ -1,148 +1,284 @@
 <?php
   require __DIR__.'/head.html';
-  require __DIR__.'/header.html';
-  $File_Ming = 'index';
   require __DIR__.'/nav.html';
+
   ?>
-<main class="app-content">
-    <div class="app-title">
-        <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="">后台首页</a></li>
-        </ul>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-lg-3">
-            <div class="widget-small primary coloured-icon"><i class="icon fa fa-users fa-3x"></i>
-                <div class="info">
-                    <h4>平台会员</h4>
-                    <p><b>
-                            <?php echo count($data['total']);?>人
-                        </b></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <div class="widget-small info coloured-icon"><i class="icon fa ly iconjinri"></i>
-                <div class="info">
-                    <h4>今日注册</h4>
-                    <p><b>
-                            <?php echo count($data['register']);?>人
-                        </b></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <div class="widget-small warning coloured-icon"><i class="icon fa ly iconjinrirenwu"></i>
-                <div class="info">
-                    <h4>累计收益</h4>
-                    <p><b>
-                            <?php echo $data['profit'];?>元
-                        </b></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <div class="widget-small danger coloured-icon"><i class="icon fa fa-star fa-3x"></i>
-                <div class="info">
-                    <h4>平台接口</h4>
-                    <p><b>
-                            <?php echo count($data['api']);?>个
-                        </b></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row" style="margin-bottom: 30px;">
-        <div class="col-md-7 ptch-index-info">
+  
 
-            <div class="layui-card ptch-overflow-y" style="height: auto">
-                <div class="layui-card-header">
-                    使用说明
-                    <i class="layui-icon layui-icon-tips" lay-tips="要支持的噢" lay-offset="5"></i>
+        <div class="xp-rightbar">
+
+            <div class="xp-topbar">
+
+                <div class="row">
+
+                    <!-- Start XP Col -->
+                    <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                        <div class="xp-menubar">
+                            <a class="xp-menu-hamburger" href="javascript:void();">
+                                <i class="icon-menu font-20 text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End XP Col -->
+
+                    <!-- Start XP Col -->
+                    <div class="col-10 col-md-11 col-lg-11 order-1 order-md-2">
+                        <div class="xp-profilebar text-right">
+                           
+                        </div>
+                    </div>
+                    <!-- End XP Col -->
+
                 </div>
-                <div class="layui-card-body layui-text layadmin-text">
-                    <p>1.接口添加在接口管理中,通过其的接口添加可以自由的添加新的接口！</p>
+
+            </div>
+
+            <!-- 导航 Start-->
+            <div class="xp-breadcrumbbar">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <h4 class="xp-page-title">Dashboard</h4>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="xp-breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 导航 End-->
+
+            <!-- 模块一 Start-->
+            <div class="xp-contentbar">
+                
+                <div class="row"> 
+
+                    <!-- Api统计 Start -->
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                                <div class="xp-widget-box">
+                                    <div class="float-left">
+                                        <h4 class="xp-counter text-primary"><?php echo count($data['api']);?></h4>
+                                        <p class="mb-0 font-16 text-muted">Api Data</p>                        
+                                    </div>
+                                    <div class="float-right">
+                                        <div class="xp-widget-icon xp-widget-icon-bg bg-primary-rgba">
+                                            <i class="mdi mdi-file-document font-30 text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="progress mt-3 mb-1" style="height: 5px;">
+                                      <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <p class="mb-0 text-primary">API数量接口统计</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Api统计 End -->
+
+                    <!-- 累计收益统计 Start-->                       
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                                <div class="xp-widget-box">
+                                    <div class="float-left">
+                                        <h4 class="xp-counter text-success"><?php echo $data['profit'];?></h4>
+                                        <p class="mb-0 font-16 text-muted">Total Revenue</p>                        
+                                    </div>
+                                    <div class="float-right">
+                                        <div class="xp-widget-icon xp-widget-icon-bg bg-success-rgba">
+                                            <i class="mdi mdi-currency-usd font-30 text-success"></i>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="progress mt-3 mb-1" style="height: 5px;">
+                                      <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <p class="mb-0 text-success">平台累计收益</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 累计收益统计 End-->
+
+                    <!-- 平台会员统计 Start-->                       
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                                <div class="xp-widget-box">
+                                    <div class="float-left">
+                                        <h4 class="xp-counter text-warning"><?php echo count($data['total']);?></h4>
+                                        <p class="mb-0 font-16 text-muted">Total Clients</p>                        
+                                    </div>
+                                    <div class="float-right">
+                                        <div class="xp-widget-icon xp-widget-icon-bg bg-warning-rgba">
+                                            <i class="mdi mdi-account-multiple font-30 text-warning"></i>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="progress mt-3 mb-1" style="height: 5px;">
+                                      <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <p class="mb-0 text-warning">平台会员统计</p>                                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 平台会员统计 End -->
+
+                    <!-- 今日注册统计 Start-->                       
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="card m-b-30">
+                            <div class="card-body">
+                                <div class="xp-widget-box">
+                                    <div class="float-left">
+                                        <h4 class="xp-counter text-danger"><?php echo count($data['register']);?></h4>
+                                        <p class="mb-0 font-16 text-muted">Register today</p>                        
+                                    </div>
+                                    <div class="float-right">
+                                        <div class="xp-widget-icon xp-widget-icon-bg bg-danger-rgba">
+                                            <i class="mdi mdi-eye font-30 text-danger"></i>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="progress mt-3 mb-1" style="height: 5px;">
+                                      <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <p class="mb-0 text-danger">今天注册用户统计</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 今日注册统计 End-->
+
+                </div>
+
+                <!-- 模块一 End-->
+
+                <!-- 模块二 Start-->
+                <div class="row">
+                    <!-- 程序介绍 Start-->
+                    <div class="col-md-12 col-lg-12 col-xl-7">
+
+                      <div class="">
+                        <div class="xp-email-rightbar">
+                            <div class="card email-open-box m-b-30">
+
+                                <div class="card-header bg-white">
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item"><h5 class="mt-2 mb-0 text-black">程序使用介绍</h5></li>
+                                       
+                                    </ul>
+                                </div>
+
+                                <div class="card-body">                                    
+                                    <div class="row m-b-30">
+                                        <div class="col-md-5">
+                                            <div class="media">
+                                              <img class="align-self-center mr-3" src="https://api.aa1.cn/logo.png" alt="Generic placeholder image">
+                                              <div class="media-body">
+                                                <h6 class="mt-0 text-black">夏柔</h6>
+                                                <p class="text-muted mb-0">admin@aa1.cn</p>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="open-email-head">
+                                                <ul class="list-inline mb-0">
+                                                    <li class="list-inline-item">版本号：1.1.0</li>
+                                                
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h6 class="mt-0">在使用期间，您可以将问题报告提交至上面邮箱</h6>
+                                            <p class="text-muted">Hi,</p>
+                                            <p>程序基于<a href="https://gitee.com/zeroart/api_spms_open?_from=gitee_search">ZeroArt</a>二次开发美化 - 模板来自<a href="https://www.bpwzj.com/">泽客</a>贡献</p>
+                                            <p>1.接口添加在接口管理中,通过其的接口添加可以自由的添加新的接口！</p>
                     <p>2.接口管理者的参数设置，需要先添加接口后才可以设置，参数分为三种：请求、返回、错误。</p>
-                    <p>3.接口管理中的数据绑定，需要在添加接口的时候为需要绑定数据库数据的接口勾选上此操作。</p>
-                    <p>4.支付功能需要先在支付设置里设置码支付相关信息。</p>
-                    <p>5.网站设置中可以设置网站前台的显示信息</p>
-                    <p>6.会员管理中可以对网站注册的会员尽心查看与删除</p>
+
+                                            <p class="text-muted">Github开源地址：<a href="https://github.com/050310Y/freeapi">前往</a> Bug反馈QQ：15001904. 站长交流群：938564996</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                    <!--程序介绍 End-->
+
+                    <!-- 服务器系统 Start-->
+                    <div class="col-md-12 col-lg-12 col-xl-5">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 col-xl-6">
+                                <div class="card bg-primary-gradient m-b-30">
+                                    <div class="card-body">
+                                        <div class="xp-widget-box text-white text-center pt-3">
+                                            <p class="xp-icon-timer mb-4"><i class="icon-layers"></i></p>
+                                            <h4 class="mb-2 font-20">PHP运行版本</h4>
+                                            <p class="mb-3"><?php echo PHP_VERSION ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-xl-6">
+                                <div class="card bg-primary-gradient m-b-30">
+                                    <div class="card-body">
+                                        <div class="xp-widget-box text-white text-center pt-3">
+                                            <p class="xp-icon-timer mb-4"><i class="icon-drop"></i></p>
+                                            <h4 class="mb-2 font-20">读写权限</h4>
+                                            <p class="mb-3"><?php echo is_writable('../config/webset.php') ? '<span style="">Ok</span>' : '<span style="">No</span>' ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!-- 服务器信息 Start-->
+                            <div class="col-md-6 col-lg-6 col-xl-6">
+                                <div class="card bg-success-gradient m-b-30">
+                                    <div class="card-body">
+                                        <div class="xp-widget-box text-white text-center pt-3">
+                                            <p class="xp-icon-timer mb-4"><i class="icon-social-dropbox"></i></p>
+                                            <h4 class="mb-2 font-20">服务器解释引擎</h4>
+                                            <p class="mb-3"><?php echo $_SERVER['SERVER_SOFTWARE']; ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 服务器信息 End-->
+
+                            <!-- 版本号 Start-->
+                            <div class="col-md-6 col-lg-6 col-xl-6">
+                                <div class="card bg-danger-gradient m-b-30">
+                                    <div class="card-body">
+                                        <div class="xp-widget-box xp-widget-newsletter text-white text-center pt-3">
+                                            <p class="xp-icon-timer mb-4"><i class="icon-paper-plane"></i></p>
+                                            <h4 class="mb-2 font-20">版本号</h4>
+                                            <p class="mb-3">V1.1.0</p>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 版本号 End-->
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
 
-        </div>
-
-        <div class="col-md-5 ptch-index-info">
-            <div class="layui-card">
-                <div class="layui-card-header">服务器信息</div>
-                <div class="layui-card-body layui-text ptch-overflow-x">
-                    <table class="layui-table">
-                        <colgroup>
-                            <col width="100">
-                            <col>
-                        </colgroup>
-                        <tbody>
-                            <tr>
-                                <td>服务器系统</td>
-                                <td>
-                                    <?php $os = explode(" ", php_uname());
-                    echo $os[0]; ?>
-                                    (
-                                    <?php if ('/' == DIRECTORY_SEPARATOR) {
-                      echo $os[2];
-                    } else {
-                      echo $os[1];
-                    } ?>
-                                    )
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>PHP运行版本</td>
-                                <td>
-                                    <?php echo PHP_VERSION ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>服务器读写权限 </td>
-                                <td>
-                                    <?php echo is_writable('../config/webset.php') ? '<span style="color: green;">可写</span>' : '<span style="color: red;">不可写</span>' ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>服务器解释引擎</td>
-                                <td style="padding-bottom: 0;">
-                                    <?php echo $_SERVER['SERVER_SOFTWARE']; ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>源码当前版本</td>
-                                <td style="padding-bottom: 0;">
-                                    v
-                                    <?php echo getVersion();?>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-    <?php  require __DIR__.'/fooer.html'; ?>
-    <script>
-        layui.use('carousel', function () {
-            var carousel = layui.carousel;
-            //建造实例
-            carousel.render({
-                elem: '#test-carousel-normal',
-                width: '100%' //设置容器宽度
-                ,
-                height: '238px' //设置容器宽度
-                ,
-                arrow: 'always' //始终显示箭头
-                //,anim: 'updown' //切换动画方式
-            });
-        });
-    </script>
+<?php require __DIR__.'/footer.html';?>
+  

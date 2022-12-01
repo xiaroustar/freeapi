@@ -1,18 +1,63 @@
 <?php
   require __DIR__.'/head.html';
-  require __DIR__.'/header.html';
-  $File_Ming = 'email';
   require __DIR__.'/nav.html';
+  $File_Ming = 'addapi';
   ?>
-<main class="app-content">
-    <div class="app-title">
-        <ul class="app-breadcrumb breadcrumb">
-            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item"><a href="">邮箱配置</a></li>
-        </ul>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
+    <div class="xp-rightbar">
+        <div class="xp-topbar">
+
+            <div class="row">
+
+                <!-- Start XP Col -->
+                <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                    <div class="xp-menubar">
+                        <a class="xp-menu-hamburger" href="javascript:void();">
+                            <i class="icon-menu font-20 text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- End XP Col -->
+
+                <!-- Start XP Col -->
+                <div class="col-10 col-md-11 col-lg-11 order-1 order-md-2">
+                    <div class="xp-profilebar text-right">
+
+                    </div>
+                </div>
+                <!-- End XP Col -->
+
+            </div>
+
+        </div>
+
+        <div class="xp-breadcrumbbar">
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <h4 class="xp-page-title">邮箱设置</h4>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="xp-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#">控制台</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">邮箱设置</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="xp-contentbar">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card m-b-30">
+
+                        <div class="card-header bg-white">
+                            <h5 class="card-title text-black">Email Setting</h5>
+                            <h6 class="card-subtitle">设置网站的Email配置信息.</h6>
+                        </div>
+
+                        <div class="card-body">
             <form id="admin-email">
                 <div class="tile">
                     <div class="tile-body">
@@ -55,8 +100,9 @@
         </div>
 
     </div>
+</div>
 
-    <?php  require __DIR__.'/fooer.html'; ?>
+    <?php  require __DIR__.'/footer.html'; ?>
 
     <script>
         layui.use('carousel', function () {

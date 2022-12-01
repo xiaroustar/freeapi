@@ -1,66 +1,105 @@
 <?php
   require __DIR__.'/head.html';
-  require __DIR__.'/header.html';
-  $File_Ming = 'apilist';
   require __DIR__.'/nav.html';
+  $File_Ming = 'apilist';
   ?>
-<!-- 主体 -->
-<main class="app-content">
-    <div class="app-title">
-        <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item">接口列表</li>
-        </ul>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="tile">
-                <div class="tile-body">
-                    <table class="table table-hover table-bordered" id="sampleTable">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>标题</th>
-                                <th>简介</th>
-                                <th>别名</th>
-                                <th>地址</th>
-                                <th>数据绑定</th>
-                                <th>上架状态</th>
-                                <th>添加时间</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody class="table-space">
-                            <?php if(!empty($data)):
-                            foreach($data as $k=>$v):?>
-                            <tr>
-                                <td><?php echo $k+1;?></td>
-                                <td><?php echo $v['l_title'];?></td>
-                                <td><?php echo $v['l_desc'];?></td>
-                                <td><?php echo $v['l_alias'];?></td>
-                                <td><?php echo $v['l_address'];?></td>
-                                <td><?php if($v['l_data']==1){echo "真";}else{echo "假";}?>
-                                </td>
-                                <td><?php if($v['l_show']>0){echo "已上架";}else{echo "未上架";}?></td>
-                                <td><?php echo $v['l_found_time'];?></td>
-                                <td class="api-list-cz">
-                                    <a class="btn btn-primary btn-sm" onclick="editRow(this)"
-                                        title="<?php echo $v['l_id'];?>">编辑</a>
-                                    <a class="btn btn-primary btn-sm" onclick="delRow(this)"
-                                        title="<?php echo $v['l_id'];?>">删除</a>
-                                </td>
-                            </tr>
-                            <?php endforeach;
-                            endif;?>
-                        </tbody>
-                    </table>
+    <div class="xp-rightbar">
+        <div class="xp-topbar">
+            <div class="row">
+                <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                    <div class="xp-menubar">
+                        <a class="xp-menu-hamburger" href="javascript:void();">
+                            <i class="icon-menu font-20 text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-10 col-md-11 col-lg-11 order-1 order-md-2">
+                    <div class="xp-profilebar text-right">
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <?php  require __DIR__.'/fooer.html'; ?>
-
-    <script type="text/javascript">
+        <div class="xp-breadcrumbbar">
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <h4 class="xp-page-title">接口列表</h4>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="xp-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#">接口管理</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">接口列表</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="xp-contentbar">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card m-b-30">
+                        <div class="card-header bg-white">
+                            <h5 class="card-title text-black mb-0">Our Projects</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="border-top-0">ID</th>
+                                            <th class="border-top-0">Title</th>
+                                            <!--<th class="border-top-0">简介</th>-->
+                                            <th class="border-top-0">Titles</th>
+                                            <!--<th class="border-top-0">地址</th>-->
+                                            <!--<th class="border-top-0">数据绑定</th>-->
+                                            <th class="border-top-0">状态</th>
+                                            <th class="border-top-0">添加时间</th>
+                                            <th class="border-top-0">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="">
+                                        <?php if(!empty($data)):
+                            foreach($data as $k=>$v):?>
+                                        <tr>
+                                            <td>
+                                                <?php echo $k+1;?>
+                                            </td>
+                                            <td>
+                                                <?php echo $v['l_title'];?>
+                                            </td>
+                                            <!--<td><php echo $v['l_desc'];?></td>-->
+                                            <td>
+                                                <?php echo $v['l_alias'];?>
+                                            </td>
+                                            <!--<td><php echo $v['l_address'];?></td>-->
+                                            <!--<td><php if($v['l_data']==1){echo "真";}else{echo "假";}?>-->
+                                            </td>
+                                            <td>
+                                                <?php if($v['l_show']>0){echo "开放";}else{echo "私密";}?>
+                                            </td>
+                                            <td>
+                                                <?php echo $v['l_found_time'];?>
+                                            </td>
+                                            <!--<td class="api-list-cz">-->
+                                            <!--    <a class="btn btn-primary btn-sm" onclick="editRow(this)" title="<php echo $v['l_id'];?>">编辑</a>-->
+                                            <!--    <a class="btn btn-primary btn-sm" onclick="delRow(this)" title="<php echo $v['l_id'];?>">删除</a>-->
+                                            <!--</td>-->
+                                        </tr>
+                                        <?php endforeach;
+                            endif;?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php require __DIR__.'/footer.html';?>
+        
+        <script type="text/javascript">
         function editRow(_this) {
             layer.open({
                 type: 2,
@@ -69,7 +108,7 @@
                 shade: true,
                 maxmin: false, //开启最大化最小化按钮
                 area: ['80%', '80%'],
-                content: ['/<?php echo ADMIN_PATH;?>/editapi/' + _this.title]
+                content: ['/admin/editapi/' + _this.title]
             });
         }
 
@@ -110,6 +149,3 @@
         }
 
     </script>
-    </body>
-
-    </html>

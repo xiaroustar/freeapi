@@ -1,5 +1,5 @@
 <!-- Navbar-->
-<header class="app-header"> <a class="app-header__logo" href="/<?php echo ADMIN_PATH;?>">ZeroAet</a>
+<header class="app-header"> <a class="app-header__logo" href="/admin">ZeroAet</a>
     <!-- Sidebar toggle button-->
     <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
     <!-- Navbar Right Menu-->
@@ -8,8 +8,8 @@
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
                     class="fa fa-user fa-lg"></i> <span><?php echo $_SESSION['info']['a_name'];?></span></a>
             <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                <li><a class="dropdown-item" href="/<?php echo ADMIN_PATH;?>/passwd.html"><i class="fa fa-user fa-lg"></i> 改密</a></li>
-                <li><a class="dropdown-item" href="/<?php echo ADMIN_PATH;?>/logout"><i class="fa fa-sign-out fa-lg"></i> 退出</a></li>
+                <li><a class="dropdown-item" href="/admin/passwd.html"><i class="fa fa-user fa-lg"></i> 改密</a></li>
+                <li><a class="dropdown-item" href="/admin/logout"><i class="fa fa-sign-out fa-lg"></i> 退出</a></li>
             </ul>
         </li>
     </ul>

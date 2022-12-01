@@ -1,58 +1,97 @@
 <?php
   require __DIR__.'/head.html';
-  require __DIR__.'/header.html';
-  $File_Ming = 'userinfo';
   require __DIR__.'/nav.html';
+  $File_Ming = 'apiinfo';
   ?>
-<!-- 主体 -->
-<main class="app-content">
-    <div class="app-title">
-        <ul class="app-breadcrumb breadcrumb side">
-            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-            <li class="breadcrumb-item">会员列表</li>
-        </ul>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="tile">
-                <div class="tile-body">
-                    <table class="table table-hover table-bordered" id="sampleTable">
-                        <thead class="table-space">
-                            <tr>
-                                <th>ID</th>
-                                <th>用户账户</th>
-                                <th>用户邮箱</th>
-                                <th>余额</th>
-                                <th>注册时间</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody class="table-space">
+  
+  
+  <div class="xp-rightbar">
+<div class="xp-topbar">
 
-                            <?php if(!empty($data)):
-                            foreach($data as $k=>$v):?>
-                            <tr>
-                                <td><?php echo $k+1;?></td>
-                                <td><?php echo $v['u_name'];?></td>
-                                <td><?php echo $v['u_email'];?></td>
-                                <td><?php echo ($v['u_balance']);?>元</td>
-                                <td><?php echo $v['u_found_time'];?></td>
-                                <td class="api-list-cz">
-                                    <a class="btn btn-primary btn-sm" onclick="editRow(this)"
-                                        title="<?php echo $v['u_id'];?>">编辑</a>
-                                    <a class="btn btn-primary btn-sm" onclick="delRow(this)"
-                                        title="<?php echo $v['u_id'];?>">删除</a>
-                                </td>
-                            </tr>
-                            <?php endforeach;
-                            endif;?>
-                        </tbody>
-                    </table>
+                <div class="row">
+
+                    <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                        <div class="xp-menubar">
+                            <a class="xp-menu-hamburger" href="javascript:void();">
+                                <i class="icon-menu font-20 text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-10 col-md-11 col-lg-11 order-1 order-md-2">
+                        <div class="xp-profilebar text-right">
+                           
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+<div class="xp-breadcrumbbar">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <h4 class="xp-page-title">会员列表</h4>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="xp-breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="#">会员管理</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">会员列表</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>          
+            </div>
+ <div class="xp-contentbar">
+<div class="row">
+            <div class="col-lg-12">
+                        <div class="card m-b-30">
+                            <div class="card-header bg-white">
+                                <h5 class="card-title text-black mb-0">金主用户列表</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="border-top-0">ID</th>
+                                                <th class="border-top-0">用户账户</th>
+                                                <th class="border-top-0">用户邮箱</th>
+                                                <th class="border-top-0">余额</th>
+                                                <th class="border-top-0">注册时间</th>
+                                                <th class="border-top-0">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="">
+
+                                        <?php if(!empty($data)):
+                                        foreach($data as $k=>$v):?>
+                                        <tr>
+                                            <td><?php echo $k+1;?></td>
+                                            <td><?php echo $v['u_name'];?></td>
+                                            <td><?php echo $v['u_email'];?></td>
+                                            <td><?php echo ($v['u_balance']);?>元</td>
+                                            <td><?php echo $v['u_found_time'];?></td>
+                                            <td class="api-list-cz">
+                                                <a class="btn btn-primary" onclick="editRow(this)"
+                                                    title="<?php echo $v['u_id'];?>">编辑</a>
+                                                <a class="btn btn-danger" onclick="delRow(this)"
+                                                    title="<?php echo $v['u_id'];?>">删除</a>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach;
+                                        endif;?>
+                                         </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <?php  require __DIR__.'/fooer.html'; ?>
+            
+    <?php  require __DIR__.'/footer.html'; ?>
     <script type="text/javascript">
         function editRow(_this) {
             layer.open({
@@ -62,7 +101,7 @@
                 shade: true,
                 maxmin: false, //开启最大化最小化按钮
                 area: ['80%', '80%'],
-                content: ['/<?php echo ADMIN_PATH;?>/useredit/' + _this.title]
+                content: ['/admin/useredit/' + _this.title]
             });
         }
 
@@ -72,7 +111,7 @@
             var tr = td.parentNode;
             var tbody = tr.parentNode;
             //询问框
-            layer.confirm('确定删除接口？', {
+            layer.confirm('确定删除用户？', {
                 title: "提示",
                 btn: ['删除', '取消 '] //按钮
             }, function () {
@@ -103,6 +142,3 @@
         }
 
     </script>
-    </body>
-
-    </html>
