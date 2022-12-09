@@ -1,128 +1,111 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage no-websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head>
 
-<head>
-    <meta charset="utf-8">
-    <title>登录中心</title>
-    <!-- Meta tag Keywords -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Neon is a Responsive Bootstrap 4 Admin Dashboard Template">
+    <meta name="keywords" content="admin, admin template, admin panel, dashboard template, ui kits, web app, crm, cms, responsive, bootstrap 4, html, sass support, scss">
+    <meta name="author" content="Themesbox">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
 
-    <meta name="keywords" content="Working Signin form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
-    <!-- //Meta tag Keywords -->
-    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&amp;display=swap" rel="stylesheet">
-    <!--/Style-CSS -->
-    <link rel="stylesheet" href="https://tucdn.wpon.cn/2022/11/26/79d1f1dab837c.css" type="text/css" media="all">
-    <!--//Style-CSS -->
-    <link rel="stylesheet" type="text/css" href="/assets/awesome/css/main.css">
-    <link type="text/css" href="/assets/awesome/css/font-awesome.min.css" rel="stylesheet">
-    <style>
-        body{
-                background-size: 100% 100%;
-        }
-    </style>
-    <style>
-    .showpc{display:none;}
-    @media (min-width:960px){
-    .showpc{display:inline;}
-    }
-    .showphone{display:inline;}
-    @media (min-width:960px){
-    .showphone{display:none;}
-    }
-    </style>
+    <title>注册中心</title>
+
+    <!-- Fevicon -->
+    <link rel="shortcut icon" href="../assets/login/images/favicon.ico">
+
+    <!-- Start CSS -->
+    <link href="http://cdn.bootstrapmb.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../assets/login/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="../assets/login/css/style.css" rel="stylesheet" type="text/css">
+    <!-- End CSS -->
+
 </head>
 
-<body >
+<body class="xp-vertical">
 
-    <!-- form section start -->
-    <section class="w3l-workinghny-form">
-        <!-- /form -->
-        <div class="workinghny-form-grid">
-            <div class="wrapper">
-                <div class="logo">
-                    <h1><a class="brand-logo" href="#"> Reg In</a></h1>
-                    <!-- if logo is image enable this   
-                        <a class="brand-logo" href="#index.html">
-                            <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-                        </a> -->
-                </div>
-                <div class="workinghny-block-grid">
-                    <div class="workinghny-left-img align-end">
-                        <img src="https://tucdn.wpon.cn/2022/11/26/57694710fc155.png" class="img-responsive showpc" alt="img" style="margin-top:-852px;">
-                    </div>
-                    <div class="form-right-inf">
+    <div class="xp-authenticate-bg"></div>
+    <!-- Start XP Container -->
+    <div id="xp-container" class="xp-container">
 
-                        <div class="login-form-content">
-                            <h2>Where to?</h2>
-                            <form id="user-register" class="signin-form">
-                                <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>用户注册</h3>
-                                <div class="form-group one-frm">
-                                  <label class="control-label">账号</label>
-                                  <input class="form-control" type="text" name="username" value="" placeholder="请输入登录账号" autofocus>
+        <!-- Start Container -->
+        <div class="container">
+
+            <!-- Start XP Row -->
+            <div class="row vh-100 align-items-center">
+                <!-- Start XP Col -->
+                <div class="col-lg-12 ">
+
+                    <!-- Start XP Auth Box -->
+                    <div class="xp-auth-box">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="text-center mt-0 m-b-15">
+                                    <a href="index.html" class="xp-web-logo"><img src="../assets/login/images/logo.svg" height="40" alt="logo"></a>
+                                </h3>
+                                <div class="p-3">
+                                    <form id="user-register" class="signin-form">
+                                        <div class="text-center mb-3">
+                                            <h4 class="text-black">Reg In !</h4>
+                                            <p class="text-muted">有账号了? <a href="login.html">登录账号</a> </p>
+                                        </div>                                        
+                                        <div class="login-or">
+                                            <h6 class="text-muted">Reg</h6>
+                                        </div>
+                                        <div class="form-group">
+                                              <input class="form-control" type="text" name="username" value="" placeholder="请输入登录账号" autofocus>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" type="password" name="password" placeholder="请输入登录密码">
+                                        </div>
+                                        <div class="form-group">
+                                            <div style="position: relative;">
+                                            <input class="form-control" type="text" id="email" style="" name="email" value=""
+                                        placeholder="请输入登录邮箱" autofocus>
+                                            <!--<button id="sendmailcode" type="button" class="btn btn-primary" onclick="getMailVerification();" style="cursor:pointer;position: absolute;top: 3px;right: 0px">发验证码</button>-->
+                                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                            
+                                            <div style="position: relative;">
+                                        <input class="form-control" style="width: 150px;" type="text" name="code" placeholder="请输入验证码">
+                                        <img id="code" style="cursor:pointer;position: absolute;top: 3px;right: 0px;" src="/code/login" onclick="javascript:this.src='/code/login?'+Math.random()" title="看不清？点击更换" align="absmiddle" />
+                                    </div>
+                                         
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-6">
+                                                <div class="custom-control custom-checkbox">
+                                                  <input type="checkbox" class="custom-control-input" id="rememberme">
+                                                  <label class="custom-control-label" for="rememberme">Remember Me</label>
+                                                </div>                                
+                                            </div>
+                                            <div class="form-group col-6 text-right">
+                                              <label class="forgot-psw"> 
+                                                <a id="forgot-psw" href="forget.html">Forgot Password?</a>
+                                              </label>
+                                            </div>
+                                        </div>                          
+                                      <button type="button" id="button" class="btn btn-primary btn-rounded btn-lg btn-block">Sign In</button>
+                                    </form>
                                 </div>
-                                <div class="form-group one-frm">
-                                  <label class="control-label">密码</label>
-                                  <input class="form-control" type="password" name="password" placeholder="请输入登录密码">
-                                </div>
-                        
-                                <?php if($emailRegister==1){?>
-                                <div class="form-group one-frm">
-                                  <label class="control-label">邮箱</label>
-                                  <input class="form-control" type="text" id="email" style="width: 160px;" name="email" value=""
-                                    placeholder="用于密码找回" autofocus>
-                                    <button id="sendmailcode" type="button" class="btn btn-primary showpc" onclick="getMailVerification();" style="cursor:pointer;position: absolute;top: 495px;right: 381px;">发验证码</button>
-                                  <button id="sendmailcode" type="button" class="btn btn-primary showphone" onclick="getMailVerification();"
-                                    style="cursor:pointer;position: absolute;top: 433px;right: 42px;">发验证码</button>
-                                </div>
-                        
-                                <div class="form-group one-frm">
-                                  <label class="control-label">验证码（<span style="color:#e60c0c">未收到请检查垃圾箱</span>）</label>
-                                  <input class="form-control" id="valcode" type="text" name="code" placeholder="请输入邮箱验证码">
-                                </div>
-                                <?php }else {?>
-                                <div class="form-group one-frm">
-                                  <label class="control-label">邮箱</label>
-                                  <input class="form-control" type="text" name="email" value="" placeholder="用于密码找回" autofocus>
-                                </div>
-                        
-                                <div class="form-group one-frm">
-                                  <label class="control-label">验证码</label>
-                                  <div style="position: relative;">
-                                    <input class="form-control" id="valcode" style="width: 150px;" type="text" name="code" placeholder="请输入验证码">
-                                    <img id="code" style="cursor:pointer;position: absolute;top: 3px;right: 0px;" src="/code/register"
-                                      onclick="javascript:this.src='/code/register?'+Math.random()" title="看不清？点击更换" align="absmiddle" />
-                                  </div>
-                                </div>
-                                <?php }?>
-                        
-                                <div class="form-group">
-                                  <div class="utility">
-                                    <p class="semibold-text mb-2"><a href="/user/forget.html">忘记密码</a> <a href="/user/login.html" style="float:right">我已有账号</a></p>
-                                  </div>
-                                </div>
-                                <div class="form-group btn-container">
-                                  <button type="button" id="button" class="btn btn-primary btn-block"><i
-                                      class="fa fa-sign-in fa-lg fa-fw"></i>立即注册</button>
-                                </div>
-                                <span style="color:#e60c0c"></span>
-                                <div style="margin-top: 10px;text-align: left;">
-                                  <p class="semibold-text mb-2"><a href="../">返回首页</a></p>
-                                </div>
-                              </form>
+                            </div>
                         </div>
+
                     </div>
+                    <!-- End XP Auth Box -->
+
                 </div>
+                <!-- End XP Col -->
             </div>
+            <!-- End XP Row -->
         </div>
-        <!-- //form -->
-        <!-- copyright-->
-        <div class="copyright text-center">
-            <div class="wrapper">
-                <p class="copy-footer-29">© 2023 免费API. All rights reserved | Design by <a href="https://www.aa1.cn">夏柔</a></p>
-            </div>
-        </div>
-        <!-- Essential javascripts for application to work-->
-        <script src="/assets/other/js/jquery.min.js"></script>
+        <!-- End Container -->
+    </div>
+    <!-- End XP Container -->
+
+
+    <!-- End JS -->
+       <script src="/assets/other/js/jquery.min.js"></script>
         <!-- The javascript plugin to display page loading on top-->
         <script src="/assets/awesome/js/plugins/pace.min.js"></script>
         <script src="/assets/layui/layui.all.js"></script>
@@ -214,12 +197,5 @@
             });
         </script>
 
-        <!-- //copyright-->
-    </section>
-    <!-- //form section start -->
 
-
-
-</body>
-
-</html>
+</body></html>

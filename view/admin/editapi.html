@@ -1,5 +1,5 @@
 <?php
-  require __DIR__.'/head.html';
+  require __DIR__.'/head2.html';
   $File_Ming = 'addapi';
   ?>
 <style>
@@ -26,6 +26,10 @@
         padding: 0px 12px;
         background-color: #fff;
     }
+    
+    .xp-leftbar {
+        width: 100%;
+    }
 </style>
 <!-- 主体 -->
 <main class="app-content">
@@ -33,14 +37,14 @@
         <div class="col-md-12">
             <div class="layui-tab layui-tab-card">
                 <ul class="layui-tab-title">
-                    <li class="layui-this">接口信息</li>
-                    <li>参数信息</li>
-                    <?php if($data['info']['l_data']==1):?>
-                    <li>数据绑定</li>
-                    <?php endif;?>
-                    <li>接口收费</li>
+                    <!--<li class="layui-this">接口信息</li>-->
+                    <!--<li>参数信息</li>-->
+                    <!--<?php if($data['info']['l_data']==1):?>-->
+                    <!--<li>数据绑定</li>-->
+                    <!--<?php endif;?>-->
+                    <!--<li>接口收费</li>-->
                 </ul>
-                <div class="layui-tab-content" style="height: 100px;">
+                <div class="layui-tab-content" style="">
                     <div class="layui-tab-item layui-show">
                         <form id="admin-editapi">
                             <div class="tile">
@@ -59,6 +63,11 @@
                                                 name="alias" value="<?php echo $data['info']['l_alias'];?>"
                                                 placeholder="dwz">
                                         </div>
+                                        <div class="form-group">
+                                            <label for="tuimg">图片地址</label>
+                                            <input class="form-control" id="tuimg" type="text" aria-describedby="tuimg"
+                                                name="tuimg" value="<?php echo $data['info']['l_tuimg'];?>">
+                                        </div>
 
                                         <div class="form-group">
                                             <label for="desc">简介说明</label>
@@ -66,6 +75,7 @@
                                                 name="desc" value="<?php echo $data['info']['l_desc'];?>"
                                                 placeholder="将长网址进行缩短，支持百度、新浪、腾讯短网址等等。">
                                         </div>
+                                        
                                         <div class="form-group">
                                             <label for="address">接口地址</label>
                                             <input class="form-control" id="address" type="text"
@@ -88,10 +98,10 @@
                                         <div class="form-group">
                                             <label for="ask">请求示例</label>
                                             <input class="form-control" id="ask" type="text" aria-describedby="ask"
-                                                name="ask" value="<?php echo $data['info']['l_tuimg'];?>"
+                                                name="ask" value="<?php echo $data['info']['l_ask'];?>"
                                                 placeholder="https://api.aa1.cn">
                                         </div>
-
+                                        
                                     </div>
 
                                     <div class="col-lg-6">
@@ -108,7 +118,13 @@
                             }
                         }'><?php echo $data['info']['l_example'];?></textarea>
                                         </div>
-
+                                        <div class="form-group">
+                                            <label for="tuimg">接口图片</label>
+                                            <input class="form-control" id="tuimg" type="text"
+                                                aria-describedby="tuimg" name="tuimg"
+                                                value="<?php echo $data['info']['l_tuimg'];?>"
+                                                placeholder="">
+                                        </div>
                                         <div class="form-group">
                                             <label for="demo">代码示例</label>
                                             <textarea class="form-control" id="demo" name="demo" rows="4"
@@ -359,22 +375,22 @@
                                                 margin-right: 20px;
                                             }
                                         </style>
-                                        <div class="form-group" id="field">
-                                            <label for="ten">选择关联数据字段</label><br>
-                                            <?php if(isset($data['data']) && isset($data['field'])):
-                                            $field = explode(",",$data['data']['b_field']);
-                                            foreach($data['field'] as $k=>$v):?>
-                                            <div class="animated-checkbox xc">
-                                                <label>
-                                                    <input <?php if(in_array($v,$field)){echo 'checked="checked"';}?>
-                                                        name="field[<?php echo $k;?>]" type="checkbox"
-                                                        value="<?php echo $v;?>">
-                                                    <span class="label-text"><?php echo $v;?></span>
-                                                </label>
-                                            </div>
-                                            <?php endforeach;
-                                            endif;?>
-                                        </div>
+                                        <!--<div class="form-group" id="field">-->
+                                        <!--    <label for="ten">选择关联数据字段</label><br>-->
+                                        <!--    <php if(isset($data['data']) && isset($data['field'])):-->
+                                        <!--    $field = explode(",",$data['data']['b_field']);-->
+                                        <!--    foreach($data['field'] as $k=>$v):?>-->
+                                        <!--    <div class="animated-checkbox xc">-->
+                                        <!--        <label>-->
+                                        <!--            <input <php if(in_array($v,$field)){echo 'checked="checked"';}?>-->
+                                        <!--                name="field[<php echo $k;?>]" type="checkbox"-->
+                                        <!--                value="<php echo $v;?>">-->
+                                        <!--            <span class="label-text"><?php echo $v;?></span>-->
+                                        <!--        </label>-->
+                                        <!--    </div>-->
+                                        <!--    <php endforeach;-->
+                                        <!--    endif;?>-->
+                                        <!--</div>-->
                                     </div>
 
                                 </div>
@@ -386,35 +402,35 @@
                         </form>
                     </div>
                     <?php endif;?>
-                    <div class="layui-tab-item">
-                        <div class="tile mb-4">
-                            <form id="admin-charge">
-                                <div class="tile-body">
-                                    <div class="form-group">
-                                        <label class="control-label">月付</label>
-                                        <input class="form-control" type="text"
-                                            value="<?php echo $data['price']['p_month'];?>" name="month"
-                                            placeholder="请输入每月的价格">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">季付</label>
-                                        <input class="form-control" value="<?php echo $data['price']['p_season'];?>"
-                                            type="text" name="season" placeholder="请输入每季的价格">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">年付</label>
-                                        <input class="form-control" value="<?php echo $data['price']['p_year'];?>"
-                                            type="text" name="year" placeholder="请输入每年的价格">
-                                    </div>
-                                </div>
-                                <div class="tile-footer">
-                                    <button type="button" class="btn btn-primary" name="submit"><i
-                                            class="fa fa-fw fa-lg fa-check-circle"></i>修改</button>
-                                    <span style="color:#e60c0c"></span>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    <!--<div class="layui-tab-item">-->
+                    <!--    <div class="tile mb-4">-->
+                    <!--        <form id="admin-charge">-->
+                    <!--            <div class="tile-body">-->
+                    <!--                <div class="form-group">-->
+                    <!--                    <label class="control-label">月付</label>-->
+                    <!--                    <input class="form-control" type="text"-->
+                    <!--                        value="<?php echo $data['price']['p_month'];?>" name="month"-->
+                    <!--                        placeholder="请输入每月的价格">-->
+                    <!--                </div>-->
+                    <!--                <div class="form-group">-->
+                    <!--                    <label class="control-label">季付</label>-->
+                    <!--                    <input class="form-control" value="<?php echo $data['price']['p_season'];?>"-->
+                    <!--                        type="text" name="season" placeholder="请输入每季的价格">-->
+                    <!--                </div>-->
+                    <!--                <div class="form-group">-->
+                    <!--                    <label class="control-label">年付</label>-->
+                    <!--                    <input class="form-control" value="<?php echo $data['price']['p_year'];?>"-->
+                    <!--                        type="text" name="year" placeholder="请输入每年的价格">-->
+                    <!--                </div>-->
+                    <!--            </div>-->
+                    <!--            <div class="tile-footer">-->
+                    <!--                <button type="button" class="btn btn-primary" name="submit"><i-->
+                    <!--                        class="fa fa-fw fa-lg fa-check-circle"></i>修改</button>-->
+                    <!--                <span style="color:#e60c0c"></span>-->
+                    <!--            </div>-->
+                    <!--        </form>-->
+                    <!--    </div>-->
+                    <!--</div>-->
                 </div>
             </div>
 
@@ -577,8 +593,22 @@
         index = layer.load(1, {
             shade: [0.1, '#fff'] //0.1透明度的白色背景
         });
+        
+        
+        console.log($('#title').val());
+        
+        let data = {};
+        let value = $('#admin-editapi').serializeArray();
+        $.each(value, function (index, item) {
+          data[item.name] = item.value;
+        });
+        let json = JSON.stringify(data);
+        console.log(json);
+        
         fd = new FormData(document.getElementById('admin-editapi'));
-        fd.append('id', $('#optApi').val())
+        fd.append('id', $('#optApi').val());
+        console.log(fd);
+        
         $.ajax({
             url: '/admin/editapi',
             type: "POST",

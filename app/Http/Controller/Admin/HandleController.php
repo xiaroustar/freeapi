@@ -305,7 +305,15 @@ class HandleController extends Controllers
             $val['show'] = "0";
         }
         //关键数据
-        $val_name = ['title', 'address', 'format', 'mode', 'ask', 'tuimg', 'alias', 'id'];
+        $val_name = [
+            'title', 
+            'address', 
+            'format', 
+            'mode', 
+            'ask', 
+            // 'tuimg', 
+            'alias', 
+            'id'];
         //判断关键数据是否存在
         if (is_empty($val_name, $val)) {
             //修改数据

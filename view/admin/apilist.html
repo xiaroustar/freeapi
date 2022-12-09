@@ -82,10 +82,16 @@
                                             <td>
                                                 <?php echo $v['l_found_time'];?>
                                             </td>
-                                            <!--<td class="api-list-cz">-->
-                                            <!--    <a class="btn btn-primary btn-sm" onclick="editRow(this)" title="<php echo $v['l_id'];?>">编辑</a>-->
-                                            <!--    <a class="btn btn-primary btn-sm" onclick="delRow(this)" title="<php echo $v['l_id'];?>">删除</a>-->
-                                            <!--</td>-->
+                                            <td class="api-list-cz">
+                                                <?php 
+                                                    echo '
+                                                    <a class="btn btn-primary btn-sm" onclick="editRow(this)" title="'.$v['l_id'].'">编辑</a>
+                                                    <a class="btn btn-primary btn-sm" onclick="delRow(this)" title="'.$v['l_id'].'">删除</a>
+                                                    ';
+                                                ?>
+                                                <!--<a class="btn btn-primary btn-sm" onclick="editRow(this)" title="<php echo $v['l_id'];?>">编辑</a>-->
+                                                <!--<a class="btn btn-primary btn-sm" onclick="delRow(this)" title="<php echo $v['l_id'];?>">删除</a>-->
+                                            </td>
                                         </tr>
                                         <?php endforeach;
                             endif;?>
@@ -98,8 +104,7 @@
             </div>
         </div>
         <?php require __DIR__.'/footer.html';?>
-        
-        <script type="text/javascript">
+                <script type="text/javascript">
         function editRow(_this) {
             layer.open({
                 type: 2,
@@ -110,6 +115,8 @@
                 area: ['80%', '80%'],
                 content: ['/admin/editapi/' + _this.title]
             });
+            
+            $('.layui-layer').css("top","50px");
         }
 
         //删除
@@ -147,5 +154,55 @@
                 });
             });
         }
+
+    </script>
+        <script type="text/javascript">
+        // function editRow(_this) {
+        //     layer.open({
+        //         type: 2,
+        //         title: '接口编辑',
+        //         shadeClose: false,
+        //         shade: true,
+        //         maxmin: false, //开启最大化最小化按钮
+        //         area: ['80%', '80%'],
+        //         content: ['/admin/editapi/' + _this.title]
+        //     });
+        // }
+
+        // //删除
+        // function delRow(_this) {
+        //     var td = _this.parentNode;
+        //     var tr = td.parentNode;
+        //     var tbody = tr.parentNode;
+        //     //询问框
+        //     layer.confirm('确定删除接口？', {
+        //         title: "提示",
+        //         btn: ['删除', '取消 '] //按钮
+        //     }, function () {
+        //         fd = new FormData();
+        //         fd.append("id", _this.title);
+        //         $.ajax({
+        //             url: '/admin/delapi',
+        //             type: "POST",
+        //             timeout: "3000",
+        //             dataType: "json",
+        //             contentType: 'application/x-www-form-urlencoded;charset=utf-8',
+        //             data: fd,
+        //             contentType: false,
+        //             processData: false,
+        //             success: function (data) {
+        //                 if (data.code == "200") {
+        //                     layer.msg(data.msg);
+        //                     tbody.removeChild(tr);
+        //                 } else {
+        //                     layer.msg(data.msg);
+        //                 }
+        //             },
+        //             error: function (XMLResponse) {
+        //                 layer.msg(XMLResponse.error);
+        //             }
+        //         });
+        //     });
+        // }
 
     </script>
