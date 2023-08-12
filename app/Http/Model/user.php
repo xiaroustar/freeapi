@@ -43,8 +43,8 @@ define("USER_gRecord", "SELECT * FROM api_order WHERE o_u_id = ? ORDER BY o_id D
 //已购接口数量
 define('USER_API_N', "SELECT * FROM api_owned WHERE ow_u_id = ?");
 
-//用户已购接口
-define('USER_API', "SELECT api_owned.*,api_info.a_l_id AS l_id,api_info.a_l_title AS l_title,api_info.a_l_desc AS l_desc,api_info.a_l_alias AS l_alias,api_info.a_l_address AS l_address,api_info.a_l_format AS l_format,api_info.a_l_mode AS l_mode,api_info.a_l_ask AS l_ask,api_info.a_l_demo AS l_demo,api_info.a_l_example AS l_example,api_info.a_l_data AS l_data ,api_info.a_l_show AS l_show ,api_info.a_l_found_time AS l_found_time,api_info.a_l_pay AS l_pay ,    FROM api_owned INNER JOIN api_info ON api_owned.ow_l_id = api_info.a_l_id WHERE ow_u_id = ?");
+// 用户已购接口
+define('USER_API', "SELECT api_owned.*,api_info.a_l_id AS l_id,api_info.a_l_title AS l_title,api_info.a_l_desc AS l_desc,api_info.a_l_alias AS l_alias,api_info.a_l_address AS l_address,api_info.a_l_format AS l_format,api_info.a_l_mode AS l_mode,api_info.a_l_ask AS l_ask,api_info.a_l_demo AS l_demo,api_info.a_l_example AS l_example,api_info.a_l_data AS l_data ,api_info.a_l_show AS l_show ,api_info.a_l_found_time AS l_found_time,api_info.a_l_pay AS l_pay FROM api_owned INNER JOIN api_info ON api_owned.ow_l_id = api_info.a_l_id WHERE ow_u_id = ?");
 
 //修改密钥 UPDATE `napi`.`api_owned` SET `ow_md5` = 'de1204b2b49e97a6963a0bf415d746b8' WHERE `ow_id` = '5'
 define('USER_API_MD5', "UPDATE api_owned SET ow_md5 = ? WHERE ow_id = ?;");
